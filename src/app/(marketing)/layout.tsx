@@ -1,5 +1,6 @@
 import Header from "@/components/marketing/Header";
 import Footer from "@/components/marketing/Footer";
+import StickyBookDemo from "@/components/marketing/StickyBookDemo";
 
 export default function MarketingLayout({
   children,
@@ -9,7 +10,8 @@ export default function MarketingLayout({
   return (
     <>
       <Header />
-      <main className="pt-24">{children}</main>
+      <main>{children}</main>
+      <StickyBookDemo />
       <Footer />
     </>
   );

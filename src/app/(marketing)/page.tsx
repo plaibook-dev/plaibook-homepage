@@ -1,20 +1,15 @@
 import type { Metadata } from "next";
 import HeroSection from "@/components/marketing/HeroSection";
-import TrustBar from "@/components/marketing/TrustBar";
-import ProblemSection from "@/components/marketing/ProblemSection";
 import HowItWorksSection from "@/components/marketing/HowItWorksSection";
-import ProductsOverview from "@/components/marketing/ProductsOverview";
-import TestimonialSection from "@/components/marketing/TestimonialSection";
-import ComparisonSection from "@/components/marketing/ComparisonSection";
-import PricingSection from "@/components/marketing/PricingSection";
-import FAQSection from "@/components/marketing/FAQSection";
-import CTASection from "@/components/marketing/CTASection";
+import ProofSection from "@/components/marketing/ProofSection";
+import SalesFloorSection from "@/components/marketing/SalesFloorSection";
+import FinalCTASection from "@/components/marketing/FinalCTASection";
 import type { WithContext, SoftwareApplication, FAQPage } from "schema-dts";
 
 export const metadata: Metadata = {
-  title: "Plaibook — AI Sales Optimization for Home Services",
+  title: "Plaibook — Pest Control Companies Are Bleeding Money. We Fix That.",
   description:
-    "Your sales funnel is leaking. Plaibook uses AI to analyze every call, automate follow-ups, and turn missed opportunities into revenue for home service businesses.",
+    "Plaibook listens to every sales call your team makes, shows you exactly where deals are breaking down, and recovers missed revenue over text — contracts signed, payments collected, no human follow-up required.",
   alternates: {
     canonical: "https://plaibook.tech",
   },
@@ -26,13 +21,14 @@ const softwareJsonLd: WithContext<SoftwareApplication> = {
   name: "Plaibook",
   applicationCategory: "BusinessApplication",
   description:
-    "AI-powered sales optimization for home service businesses. Analyze every call, automate follow-ups, and close more deals.",
+    "Plaibook listens to every sales call, shows you where deals break down, and recovers missed revenue over text. Built for pest control and home service businesses.",
   operatingSystem: "Web",
   offers: {
     "@type": "Offer",
     price: "0",
     priceCurrency: "USD",
-    description: "Custom pricing — we only win when you win.",
+    description:
+      "Book a demo to see your sales floor through Plaibook.",
   },
 };
 
@@ -42,34 +38,34 @@ const faqJsonLd: WithContext<FAQPage> = {
   mainEntity: [
     {
       "@type": "Question",
-      name: "How does Plaibook's pricing work?",
+      name: "How does Plaibook work?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Our pricing is performance-based. There are no upfront costs or long-term contracts. We tie our pricing to the additional revenue we generate for your business.",
+        text: "Plaibook records and transcribes every sales call, scores them against quality control checkpoints, and automatically follows up with leads that didn't close via SMS — handling objections and closing deals without human involvement.",
       },
     },
     {
       "@type": "Question",
-      name: "What channels does Plaibook support?",
+      name: "What results has Plaibook produced?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Plaibook works across SMS, phone calls, and your website chat widget — all from one platform.",
+        text: "One customer closed over $700,000 in new revenue from a single SMS upsell campaign. Across customers, Plaibook scores 93% of calls automatically and recovers 5-15% of unclosed leads over text.",
       },
     },
     {
       "@type": "Question",
-      name: "How long does setup take?",
+      name: "What phone systems does Plaibook integrate with?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Most teams are up and running within a day. We integrate with your existing phone system and CRM.",
+        text: "Plaibook integrates with major phone systems and connects to FieldRoutes to verify call outcomes against actual CRM records.",
       },
     },
     {
       "@type": "Question",
-      name: "How fast does the AI respond to new leads?",
+      name: "Does Plaibook replace my sales team?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Within 30 seconds. When a new lead comes in, Plaibook sends a personalized text immediately.",
+        text: "No. Plaibook augments your team by handling follow-ups and recovering leads that would otherwise be lost. Your closers still close — Plaibook catches what they miss.",
       },
     },
   ],
@@ -91,15 +87,10 @@ export default function HomePage() {
         }}
       />
       <HeroSection />
-      <TrustBar />
-      <ProblemSection />
       <HowItWorksSection />
-      <ProductsOverview />
-      <TestimonialSection />
-      <ComparisonSection />
-      <PricingSection />
-      <FAQSection />
-      <CTASection />
+      <ProofSection />
+      <SalesFloorSection />
+      <FinalCTASection />
     </>
   );
 }

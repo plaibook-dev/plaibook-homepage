@@ -8,6 +8,10 @@ interface Props {
   delay?: number;
   direction?: "up" | "down" | "left" | "right" | "none";
   type?: "subtle" | "default" | "dramatic";
+  /** When used with staggerIndex, adds stagger * staggerIndex to the delay */
+  stagger?: number;
+  /** Index for computing stagger delay: totalDelay = delay + stagger * staggerIndex */
+  staggerIndex?: number;
 }
 
 const typeConfig = {
@@ -22,8 +26,11 @@ export default function FadeIn({
   delay = 0,
   direction = "up",
   type = "default",
+  stagger = 0,
+  staggerIndex = 0,
 }: Props) {
   const { translate, duration } = typeConfig[type];
+  const totalDelay = delay + stagger * staggerIndex;
 
   const directions = {
     up: { y: translate, x: 0 },
@@ -40,7 +47,7 @@ export default function FadeIn({
       initial={{ opacity: 0, x, y }}
       whileInView={{ opacity: 1, x: 0, y: 0 }}
       viewport={{ once: true, margin: "-80px" }}
-      transition={{ duration, ease: "easeOut", delay }}
+      transition={{ duration, ease: "easeOut", delay: totalDelay }}
       className={className}
     >
       {children}

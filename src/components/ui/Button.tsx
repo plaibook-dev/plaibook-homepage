@@ -3,7 +3,7 @@ import Link from "next/link";
 interface ButtonProps {
   children: React.ReactNode;
   href?: string;
-  variant?: "primary" | "secondary" | "ghost" | "soft" | "white";
+  variant?: "primary" | "secondary" | "ghost" | "soft" | "white" | "dark";
   size?: "sm" | "md" | "lg";
   className?: string;
   onClick?: () => void;
@@ -18,7 +18,7 @@ export default function Button({
   onClick,
 }: ButtonProps) {
   const base =
-    "inline-flex items-center justify-center font-semibold rounded-lg transition-all duration-200 cursor-pointer";
+    "inline-flex items-center justify-center font-semibold rounded-lg transition-all duration-200 cursor-pointer hover:scale-[1.02] active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2";
 
   const variants = {
     primary:
@@ -29,6 +29,8 @@ export default function Button({
     soft: "bg-gray-100 text-text-primary hover:bg-gray-200",
     white:
       "bg-white text-primary hover:bg-gray-100 shadow-lg shadow-black/10",
+    dark:
+      "bg-white/10 text-white border border-white/20 hover:bg-white/20 backdrop-blur-sm",
   };
 
   const sizes = {

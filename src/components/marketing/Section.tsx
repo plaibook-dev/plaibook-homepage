@@ -4,7 +4,7 @@ interface Props {
   dark?: boolean;
   id?: string;
   spacing?: "tight" | "default" | "loose" | "none";
-  bg?: "white" | "cream" | "gray" | "green-tint" | "dark" | "dark-alt" | "primary";
+  bg?: "white" | "cream" | "gray" | "green-tint" | "dark" | "dark-alt" | "primary" | "hero-dark";
 }
 
 const spacingClasses = {
@@ -22,6 +22,7 @@ const bgClasses = {
   dark: "bg-bg-dark text-text-light",
   "dark-alt": "bg-bg-dark-alt text-text-light",
   primary: "bg-primary text-text-light",
+  "hero-dark": "bg-bg-dark text-text-light",
 };
 
 export default function Section({
