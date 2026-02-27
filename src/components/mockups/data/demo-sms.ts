@@ -7,7 +7,7 @@ export interface DemoSMSMessage {
 export const DEMO_SMS_THREAD: DemoSMSMessage[] = [
   {
     sender: "ai",
-    text: "Hey Jennifer, this is Sarah's team at Frontline Pest. You chatted with her earlier about getting your place on a quarterly plan. She mentioned you wanted to think it over — totally fair. Just wanted to see if any questions came up?",
+    text: "Hey Jennifer, this is Sarah's team at Pest Control. You chatted with her earlier about getting your place on a quarterly plan. She mentioned you wanted to think it over — totally fair. Just wanted to see if any questions came up?",
     time: "2:47 PM",
   },
   {

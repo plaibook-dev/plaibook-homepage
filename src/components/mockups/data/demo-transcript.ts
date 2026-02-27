@@ -35,7 +35,7 @@ export const TRANSCRIPT_COACHING: DemoTranscript = {
     {
       speaker: "rep",
       speakerName: "Tyler",
-      text: "Thanks for calling Frontline Pest Control, this is Tyler. How can I help you?",
+      text: "Thanks for calling Pest Control, this is Tyler. How can I help you?",
       checkpoint: { name: "Greeting", hit: true },
       timestamp: "0:00",
     },
@@ -150,7 +150,7 @@ export const TRANSCRIPT_EXEMPLARY: DemoTranscript = {
     {
       speaker: "rep",
       speakerName: "Marcus",
-      text: "Thanks for calling Frontline Pest Control, this is Marcus. Who do I have the pleasure of speaking with?",
+      text: "Thanks for calling Pest Control, this is Marcus. Who do I have the pleasure of speaking with?",
       checkpoint: { name: "Greeting", hit: true },
       timestamp: "0:00",
     },

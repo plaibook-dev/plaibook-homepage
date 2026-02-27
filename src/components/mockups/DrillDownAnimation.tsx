@@ -30,7 +30,7 @@ const callRows = [
 const highlightCall = 2; // Lisa Chen
 
 const transcriptLines = [
-  { speaker: "Sarah", text: "Hi Lisa, thanks for calling Frontline Pest Control.", check: true },
+  { speaker: "Sarah", text: "Hi Lisa, thanks for calling Pest Control.", check: true },
   { speaker: "Lisa", text: "Hi, yeah I found you guys online. We're seeing roaches in the kitchen." },
   { speaker: "Sarah", text: "I'm sorry to hear that. How long has that been going on?", check: true },
   { speaker: "Lisa", text: "Maybe two weeks? It's getting worse." },

@@ -64,20 +64,18 @@ function Beat({
 
 export default function HowItWorksSection() {
   return (
-    <Section id="how-it-works" bg="white" spacing="default">
-      <FadeIn>
-        <p className="text-sm text-text-muted font-medium mb-12 max-w-xl">
-          Here&apos;s what changes when you turn Plaibook on.
-        </p>
-      </FadeIn>
+    <Section id="how-it-works" bg="white" spacing="none" className="pt-8 pb-16 sm:pb-24">
+      <p className="text-base text-text-muted font-medium mb-12 max-w-xl">
+        Here&apos;s what happens when you turn Plaibook on.
+      </p>
 
       <div className="space-y-20 md:space-y-28">
         {/* Beat 1 */}
         <Beat
           number="01"
-          headline="We hear everything."
-          body="Every sales call — both sides — recorded, transcribed, and scored against your quality control checkpoints. Not a sample. Not the ones your reps choose to report. Every call, every time, tied to the outcome in FieldRoutes."
-          caption="Both sides. Every call. Scored automatically."
+          headline="Every call, graded automatically."
+          body="Every sales call is scored against your quality control checkpoints the moment it ends — no manager has to listen to a single recording. Not a sample. Not the ones your reps choose to report. Every call, every rep, every day. No more spreadsheets, no more guessing who followed the script."
+          caption="Your entire team scored in real time. No spreadsheets. No sampling."
         >
           <CallFeed />
         </Beat>
@@ -85,9 +83,9 @@ export default function HowItWorksSection() {
         {/* Beat 2 */}
         <Beat
           number="02"
-          headline="You see where deals break."
-          body="Click any chart and see exactly which calls are behind that number. Click a call and you're reading the transcript, seeing which checkpoints were hit or missed, reading the coaching notes. You're never stuck at the summary level."
-          caption="Click any data point. See exactly what's behind it."
+          headline="You see where the money goes."
+          body={`Click "Spouse Objection" and see every deal it killed, what your reps tried, and what actually worked. You know exactly which objection cost you $37,400 last quarter — and which responses are winning those deals back.`}
+          caption="Revenue lost by objection. What worked. What didn't. All the way down to the call."
           reversed
         >
           <InteractiveDemo />
@@ -97,8 +95,8 @@ export default function HowItWorksSection() {
         <Beat
           number="03"
           headline="Missed deals get closed."
-          body={`When a lead doesn\u2019t close on the call, Plaibook picks it up over text \u2014 handles objections, answers questions, and closes the deal. Subscription created in FieldRoutes, contract signed, payment collected. Not \u201Cbooks a callback.\u201D Closed.`}
-          caption="A real conversation. A real close. No human follow-up."
+          body={`When a lead doesn\u2019t close on the call, Plaibook picks it up over text \u2014 handles objections, answers questions, and closes the deal. Subscription created in FieldRoutes, contract signed, payment collected. Not \u201Cbooks a callback.\u201D Closed. And we\u2019re smart about who we text \u2014 if a customer called in angry about a service issue yesterday, they won\u2019t get an upsell today.`}
+          caption="A real conversation. A real close. That revenue would have slipped away."
         >
           <div className="flex justify-center">
             <SMSConversation />
@@ -110,9 +108,9 @@ export default function HowItWorksSection() {
       <FadeIn delay={0.1}>
         <div className="mt-20">
           <QuoteBlock
-            quote={TESTIMONIALS.mattMuller.quote}
-            name={TESTIMONIALS.mattMuller.name}
-            company={TESTIMONIALS.mattMuller.company}
+            quote={TESTIMONIALS.nickBoettcher.quote}
+            name={TESTIMONIALS.nickBoettcher.name}
+            company={TESTIMONIALS.nickBoettcher.company}
             variant="fullWidth"
           />
         </div>

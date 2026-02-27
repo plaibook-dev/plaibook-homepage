@@ -3,13 +3,14 @@ import HeroSection from "@/components/marketing/HeroSection";
 import HowItWorksSection from "@/components/marketing/HowItWorksSection";
 import ProofSection from "@/components/marketing/ProofSection";
 import SalesFloorSection from "@/components/marketing/SalesFloorSection";
+import TrustSection from "@/components/marketing/TrustSection";
 import FinalCTASection from "@/components/marketing/FinalCTASection";
 import type { WithContext, SoftwareApplication, FAQPage } from "schema-dts";
 
 export const metadata: Metadata = {
   title: "Plaibook — Pest Control Companies Are Bleeding Money. We Fix That.",
   description:
-    "Plaibook listens to every sales call your team makes, shows you exactly where deals are breaking down, and recovers missed revenue over text — contracts signed, payments collected, no human follow-up required.",
+    "Plaibook shows you exactly how much revenue your call center is losing, which objections are killing deals, and recovers the ones your reps dropped — contracts signed, payments collected, automatically.",
   alternates: {
     canonical: "https://plaibook.tech",
   },
@@ -21,7 +22,7 @@ const softwareJsonLd: WithContext<SoftwareApplication> = {
   name: "Plaibook",
   applicationCategory: "BusinessApplication",
   description:
-    "Plaibook listens to every sales call, shows you where deals break down, and recovers missed revenue over text. Built for pest control and home service businesses.",
+    "Plaibook shows you exactly how much revenue your call center is losing, which objections are killing deals, and recovers missed revenue over text. Built for pest control and home service businesses.",
   operatingSystem: "Web",
   offers: {
     "@type": "Offer",
@@ -90,6 +91,7 @@ export default function HomePage() {
       <HowItWorksSection />
       <ProofSection />
       <SalesFloorSection />
+      <TrustSection />
       <FinalCTASection />
     </>
   );

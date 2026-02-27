@@ -30,7 +30,7 @@ export default function SMSConversation({ className = "" }: { className?: string
             <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
           </svg>
           <div className="flex-1 text-center">
-            <p className="text-xs font-heading font-semibold text-slate-800">Frontline Pest</p>
+            <p className="text-xs font-heading font-semibold text-slate-800">Pest Control</p>
             <p className="text-[9px] text-slate-400">Messages</p>
           </div>
           <div className="w-4" />
@@ -49,7 +49,7 @@ export default function SMSConversation({ className = "" }: { className?: string
             className={`flex flex-col ${msg.sender === "lead" ? "items-end" : "items-start"}`}
           >
             <span className="text-[8px] text-slate-400 mb-0.5 px-1">
-              {msg.sender === "ai" ? "Frontline Pest" : "Jennifer"} &middot; {msg.time}
+              {msg.sender === "ai" ? "Pest Control" : "Jennifer"} &middot; {msg.time}
             </span>
             <div
               className={`rounded-2xl px-3 py-2 text-[11px] leading-relaxed max-w-[85%] ${

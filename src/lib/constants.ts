@@ -1,15 +1,15 @@
 export const SITE_URL = "https://plaibook.tech";
 export const SITE_NAME = "Plaibook";
 export const SITE_DESCRIPTION =
-  "Plaibook listens to every call your team makes, shows you what's breaking down, and recovers missed revenue over text — contracts signed, payments collected, no human follow-up required.";
+  "Plaibook shows you exactly how much revenue your call center is losing, which objections are killing deals, and recovers the ones your reps dropped — contracts signed, payments collected, automatically.";
 
 export const DEMO_URL = "/demo";
 export const LOGIN_URL = "https://app.plaibook.tech";
 
 export const NAV_LINKS = [
-  { label: "How It Works", href: "#how-it-works" },
-  { label: "Results", href: "#results" },
-  { label: "Pricing", href: "#pricing" },
+  { label: "How It Works", href: "/#how-it-works" },
+  { label: "Results", href: "/#results" },
+  { label: "Case Study", href: "/case-study" },
 ] as const;
 
 export const TESTIMONIALS = {
@@ -60,5 +60,14 @@ export const TESTIMONIALS = {
       "Lead attribution and buyer journey is something a sales CRM normally solves. And they don't exist in this market. Solving for all three of those in one — guys, that's pretty freaking brilliant.",
     name: "Jeff Davis",
     company: "Coalmarch",
+  },
+  taylorChristensen: {
+    quote:
+      "When we started using Plaibook we saw our daily revenue skyrocket 10X and our outbound close rate was elevated to 75%",
+    name: "Taylor Christensen",
+    company: "BRD Pest Solutions",
+    title: "Marketing Director",
+    videoUrl:
+      "https://plaibook-homepage-assets.s3.amazonaws.com/videos/plaibooktaylortestimonial02.mp4",
   },
 } as const;

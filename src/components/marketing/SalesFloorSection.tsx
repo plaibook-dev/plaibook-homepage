@@ -5,6 +5,7 @@ import FadeIn from "@/components/marketing/FadeIn";
 import QuoteBlock from "@/components/marketing/QuoteBlock";
 import QCScorecard from "@/components/mockups/QCScorecard";
 import CampaignRecoveryView from "@/components/mockups/CampaignRecoveryView";
+import MarketingAttributionView from "@/components/mockups/MarketingAttributionView";
 import { TESTIMONIALS } from "@/lib/constants";
 
 interface BlockProps {
@@ -51,7 +52,7 @@ export default function SalesFloorSection() {
     <Section bg="gray" spacing="default">
       <FadeIn>
         <p className="text-sm text-text-muted font-medium mb-12">
-          What your Monday morning looks like with Plaibook.
+          What your Monday morning looks like with Plaibook — whether you run the sales floor or the ad spend.
         </p>
       </FadeIn>
 
@@ -74,15 +75,24 @@ export default function SalesFloorSection() {
         >
           <CampaignRecoveryView />
         </SalesFloorBlock>
+
+        {/* Block 3: Marketing Attribution */}
+        <SalesFloorBlock
+          headline="Which campaigns actually make money?"
+          body="See revenue per lead per campaign — not just clicks or calls, but actual closed deals traced back to the keyword that started them. When 26% of your termite-inspection leads are unqualified because of WDI documentation requests, you'll know to reallocate that spend before the month is over."
+          caption="Revenue-per-lead by source. Not vanity metrics — closed deals."
+        >
+          <MarketingAttributionView />
+        </SalesFloorBlock>
       </div>
 
       {/* David Evans quote */}
       <FadeIn delay={0.1}>
         <div className="mt-16">
           <QuoteBlock
-            quote={TESTIMONIALS.davidEvans.quote}
-            name={TESTIMONIALS.davidEvans.name}
-            company={TESTIMONIALS.davidEvans.company}
+            quote={TESTIMONIALS.jeffDavis.quote}
+            name={TESTIMONIALS.jeffDavis.name}
+            company={TESTIMONIALS.jeffDavis.company}
             variant="inline"
           />
         </div>

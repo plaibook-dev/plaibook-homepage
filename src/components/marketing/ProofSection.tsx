@@ -17,25 +17,24 @@ export default function ProofSection() {
 
       {/* Stats grid */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 mb-16">
-        <StatBlock value="786" label="deals closed over text in a single campaign" light />
-        <StatBlock value="93%" label="of calls scored without a manager listening" light />
-        <StatBlock value="$36K" label="in revenue recovered from unfollowed leads" light />
-        <StatBlock value="5-15%" label="tunable SMS conversion rate across campaigns" light />
+        <StatBlock value="$37K" label="in revenue traced to a single objection" light />
+        <StatBlock value="110" label="abandoned leads per account per month" light />
+        <StatBlock value="$650K+" label="closed from one SMS upsell campaign" light />
+        <StatBlock value="100%" label="of calls scored without a manager listening" light />
       </div>
 
       {/* BRD narrative */}
       <FadeIn delay={0.1}>
         <div className="max-w-3xl">
-          <p className="text-text-light/80 leading-relaxed mb-2">
-            One customer turned on Plaibook&apos;s SMS engine for mosquito
-            upsells. It closed over $700K in new revenue before they shut it off
-            &mdash; not because it stopped working, but because they sold more
-            than their techs could service. That&apos;s an edge case, but it
-            shows what happens when closeable leads stop falling through the
-            cracks.
+          <p className="text-lg text-text-light/90 font-medium leading-relaxed mb-2">
+            BRD Pest Solutions turned on Plaibook&apos;s SMS engine to upsell
+            mosquito treatments to their existing customer base. It closed over
+            $700K in new revenue &mdash; and they had to shut it off. Not
+            because it stopped working. Because they ran out of mosquito product
+            and couldn&apos;t service the accounts they&apos;d already sold.
           </p>
           <a
-            href="#"
+            href="/case-study"
             className="text-primary hover:text-primary-light text-sm font-medium transition-colors"
           >
             See the full case study &rarr;
@@ -43,17 +42,33 @@ export default function ProofSection() {
         </div>
       </FadeIn>
 
-      {/* Nick Boettcher quote */}
+      {/* Testimonial video */}
       <FadeIn delay={0.15}>
-        <div className="mt-12">
+        <div className="mt-12 max-w-4xl">
+          <video
+            className="w-full rounded-lg shadow-2xl"
+            controls
+          >
+            <source
+              src={TESTIMONIALS.taylorChristensen.videoUrl}
+              type="video/mp4"
+            />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </FadeIn>
+
+      <FadeIn delay={0.2}>
+        <div className="mt-8">
           <QuoteBlock
-            quote={TESTIMONIALS.nickBoettcher.quote}
-            name={TESTIMONIALS.nickBoettcher.name}
-            company={TESTIMONIALS.nickBoettcher.company}
+            quote={TESTIMONIALS.taylorChristensen.quote}
+            name={TESTIMONIALS.taylorChristensen.name}
+            company={TESTIMONIALS.taylorChristensen.company}
             variant="dark"
           />
         </div>
       </FadeIn>
+
     </Section>
   );
 }

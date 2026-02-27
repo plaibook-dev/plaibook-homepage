@@ -10,6 +10,7 @@ export interface DemoCall {
   timestamp: string;
   needsCoaching?: boolean;
   exceptional?: boolean;
+  revenueAtStake: number | null;
 }
 
 export const DEMO_CALLS: DemoCall[] = [
@@ -25,6 +26,7 @@ export const DEMO_CALLS: DemoCall[] = [
     checkpointScore: 96,
     timestamp: "2 min ago",
     exceptional: true,
+    revenueAtStake: 485,
   },
   {
     id: "c-009",
@@ -36,6 +38,7 @@ export const DEMO_CALLS: DemoCall[] = [
     transcriptPreview: "So for the termite inspection, that's completely free. If we find anything, we'll put together a treatment plan right there...",
     checkpointScore: 92,
     timestamp: "47 min ago",
+    revenueAtStake: 895,
   },
   {
     id: "c-013",
@@ -47,6 +50,7 @@ export const DEMO_CALLS: DemoCall[] = [
     transcriptPreview: "Since your neighbor Mike referred you, I can get you the same rate he's on. Let me pull up Thursday availability...",
     checkpointScore: 94,
     timestamp: "1 hr ago",
+    revenueAtStake: 449,
   },
   {
     id: "c-014",
@@ -58,6 +62,7 @@ export const DEMO_CALLS: DemoCall[] = [
     transcriptPreview: "I totally understand wanting to check with your husband. I'll send you a summary with pricing so you have everything...",
     checkpointScore: 88,
     timestamp: "2 hr ago",
+    revenueAtStake: 389,
   },
   {
     id: "c-015",
@@ -70,6 +75,7 @@ export const DEMO_CALLS: DemoCall[] = [
     checkpointScore: 91,
     timestamp: "3 hr ago",
     exceptional: true,
+    revenueAtStake: 648,
   },
   {
     id: "c-016",
@@ -81,6 +87,7 @@ export const DEMO_CALLS: DemoCall[] = [
     transcriptPreview: "Oh you're in the Scottsdale area? We actually don't service that far east yet. Let me see if I can find someone...",
     checkpointScore: 82,
     timestamp: "4 hr ago",
+    revenueAtStake: null,
   },
 
   // ── Sarah Chen (6 calls) ─────────────────────────────────────
@@ -94,6 +101,7 @@ export const DEMO_CALLS: DemoCall[] = [
     transcriptPreview: "I totally understand wanting to talk it over. Let me send you a summary of what we discussed so you have everything in front of you...",
     checkpointScore: 88,
     timestamp: "8 min ago",
+    revenueAtStake: 589,
   },
   {
     id: "c-010",
@@ -106,6 +114,7 @@ export const DEMO_CALLS: DemoCall[] = [
     checkpointScore: 82,
     timestamp: "53 min ago",
     needsCoaching: true,
+    revenueAtStake: 449,
   },
   {
     id: "c-017",
@@ -117,6 +126,7 @@ export const DEMO_CALLS: DemoCall[] = [
     transcriptPreview: "Great, I've got your quarterly plan set up. Your tech Carlos will be there Friday morning. He's been with us 8 years...",
     checkpointScore: 91,
     timestamp: "1 hr ago",
+    revenueAtStake: 389,
   },
   {
     id: "c-018",
@@ -128,6 +138,7 @@ export const DEMO_CALLS: DemoCall[] = [
     transcriptPreview: "Absolutely, we can treat the whole property including the detached garage. Let me get you scheduled for next Tuesday...",
     checkpointScore: 86,
     timestamp: "2 hr ago",
+    revenueAtStake: 525,
   },
   {
     id: "c-019",
@@ -140,6 +151,7 @@ export const DEMO_CALLS: DemoCall[] = [
     checkpointScore: 78,
     timestamp: "3 hr ago",
     needsCoaching: true,
+    revenueAtStake: 349,
   },
   {
     id: "c-020",
@@ -152,6 +164,7 @@ export const DEMO_CALLS: DemoCall[] = [
     checkpointScore: 93,
     timestamp: "4 hr ago",
     exceptional: true,
+    revenueAtStake: 548,
   },
 
   // ── Jake Morrison (6 calls) ──────────────────────────────────
@@ -165,6 +178,7 @@ export const DEMO_CALLS: DemoCall[] = [
     transcriptPreview: "Oh you're looking for commercial? Yeah, we primarily service residential in the Phoenix metro area. I can refer you to...",
     checkpointScore: 72,
     timestamp: "12 min ago",
+    revenueAtStake: null,
   },
   {
     id: "c-011",
@@ -176,6 +190,7 @@ export const DEMO_CALLS: DemoCall[] = [
     transcriptPreview: "Great, I'll get that quarterly plan started for you. We'll have a tech out there Monday morning between 8 and 11...",
     checkpointScore: 78,
     timestamp: "1 hr ago",
+    revenueAtStake: 425,
   },
   {
     id: "c-021",
@@ -187,6 +202,7 @@ export const DEMO_CALLS: DemoCall[] = [
     transcriptPreview: "Yeah, scorpions are definitely more active this time of year. The quarterly plan covers those along with all general pest...",
     checkpointScore: 74,
     timestamp: "2 hr ago",
+    revenueAtStake: 485,
   },
   {
     id: "c-022",
@@ -198,6 +214,7 @@ export const DEMO_CALLS: DemoCall[] = [
     transcriptPreview: "I've got you set for Wednesday. Your tech will treat the full interior, exterior perimeter, and we'll hit the eaves where you're seeing the wasps...",
     checkpointScore: 82,
     timestamp: "3 hr ago",
+    revenueAtStake: 375,
   },
   {
     id: "c-023",
@@ -209,6 +226,7 @@ export const DEMO_CALLS: DemoCall[] = [
     transcriptPreview: "I understand you're busy. If you want, I can call you back at — oh, looks like they hung up...",
     checkpointScore: 52,
     timestamp: "4 hr ago",
+    revenueAtStake: 350,
   },
   {
     id: "c-024",
@@ -220,6 +238,7 @@ export const DEMO_CALLS: DemoCall[] = [
     transcriptPreview: "Since the Fosters referred you, you'll get 10% off your first quarter. Let me grab a good time for you this week...",
     checkpointScore: 80,
     timestamp: "5 hr ago",
+    revenueAtStake: 405,
   },
 
   // ── Priya Patel (5 calls) ────────────────────────────────────
@@ -234,6 +253,7 @@ export const DEMO_CALLS: DemoCall[] = [
     checkpointScore: 94,
     timestamp: "15 min ago",
     exceptional: true,
+    revenueAtStake: 498,
   },
   {
     id: "c-025",
@@ -246,6 +266,7 @@ export const DEMO_CALLS: DemoCall[] = [
     checkpointScore: 96,
     timestamp: "1 hr ago",
     exceptional: true,
+    revenueAtStake: 1150,
   },
   {
     id: "c-026",
@@ -257,6 +278,7 @@ export const DEMO_CALLS: DemoCall[] = [
     transcriptPreview: "I completely understand wanting to compare. What I'll do is send you a detailed breakdown so you can see exactly what's included...",
     checkpointScore: 88,
     timestamp: "2 hr ago",
+    revenueAtStake: 449,
   },
   {
     id: "c-027",
@@ -268,6 +290,7 @@ export const DEMO_CALLS: DemoCall[] = [
     transcriptPreview: "Perfect, I'll get that scheduled. And since you mentioned the bed bug scare, I'm adding a one-time inspection at no charge...",
     checkpointScore: 92,
     timestamp: "3 hr ago",
+    revenueAtStake: 425,
   },
   {
     id: "c-028",
@@ -279,6 +302,7 @@ export const DEMO_CALLS: DemoCall[] = [
     transcriptPreview: "That's a great question about our guarantee. If you see any pest activity between quarterly visits, we come back free of charge...",
     checkpointScore: 86,
     timestamp: "4 hr ago",
+    revenueAtStake: 389,
   },
 
   // ── Tyler Brooks (6 calls) ───────────────────────────────────
@@ -293,6 +317,7 @@ export const DEMO_CALLS: DemoCall[] = [
     checkpointScore: 68,
     timestamp: "22 min ago",
     needsCoaching: true,
+    revenueAtStake: 449,
   },
   {
     id: "c-012",
@@ -304,6 +329,7 @@ export const DEMO_CALLS: DemoCall[] = [
     transcriptPreview: "I'm already under contract with another company for another 6 months. Can you send me something I can look at when that's up...",
     checkpointScore: 64,
     timestamp: "1 hr ago",
+    revenueAtStake: null,
   },
   {
     id: "c-029",
@@ -315,6 +341,7 @@ export const DEMO_CALLS: DemoCall[] = [
     transcriptPreview: "OK great. I've got your quarterly plan set up starting next Monday. Your initial visit covers the full interior plus exterior perimeter...",
     checkpointScore: 76,
     timestamp: "2 hr ago",
+    revenueAtStake: 425,
   },
   {
     id: "c-030",
@@ -327,6 +354,7 @@ export const DEMO_CALLS: DemoCall[] = [
     checkpointScore: 70,
     timestamp: "3 hr ago",
     needsCoaching: true,
+    revenueAtStake: 485,
   },
   {
     id: "c-031",
@@ -338,6 +366,7 @@ export const DEMO_CALLS: DemoCall[] = [
     transcriptPreview: "Since your coworker Steve is already on our plan, I can match his rate. Let me pull up this week's availability...",
     checkpointScore: 78,
     timestamp: "4 hr ago",
+    revenueAtStake: 389,
   },
   {
     id: "c-032",
@@ -349,6 +378,7 @@ export const DEMO_CALLS: DemoCall[] = [
     transcriptPreview: "Sure, I can give you a quick quote. What kind of — hello? Are you still there?",
     checkpointScore: 48,
     timestamp: "5 hr ago",
+    revenueAtStake: 425,
   },
 
   // ── Amanda Reyes (5 calls) ───────────────────────────────────
@@ -362,6 +392,7 @@ export const DEMO_CALLS: DemoCall[] = [
     transcriptPreview: "Perfect. And since the Hendersons referred you, you're getting 10% off the first quarter. Let me get that set up...",
     checkpointScore: 90,
     timestamp: "28 min ago",
+    revenueAtStake: 445,
   },
   {
     id: "c-033",
@@ -373,6 +404,7 @@ export const DEMO_CALLS: DemoCall[] = [
     transcriptPreview: "I'll have our best tech out there Thursday. He specializes in ant colonies and he'll trace the entry points...",
     checkpointScore: 88,
     timestamp: "1 hr ago",
+    revenueAtStake: 375,
   },
   {
     id: "c-034",
@@ -384,6 +416,7 @@ export const DEMO_CALLS: DemoCall[] = [
     transcriptPreview: "Totally fair to shop around. What I'd ask is — when you're comparing, make sure they're including the attic and crawlspace...",
     checkpointScore: 84,
     timestamp: "2 hr ago",
+    revenueAtStake: 485,
   },
   {
     id: "c-035",
@@ -395,6 +428,7 @@ export const DEMO_CALLS: DemoCall[] = [
     transcriptPreview: "Great news — I can do a one-time treatment for the immediate issue, and if you decide to go quarterly within 30 days, I'll credit it...",
     checkpointScore: 86,
     timestamp: "3 hr ago",
+    revenueAtStake: 349,
   },
   {
     id: "c-036",
@@ -406,5 +440,6 @@ export const DEMO_CALLS: DemoCall[] = [
     transcriptPreview: "I understand the timing isn't great right now. What if I pencil you in for two weeks out and we can confirm closer to...",
     checkpointScore: 80,
     timestamp: "4 hr ago",
+    revenueAtStake: 425,
   },
 ];

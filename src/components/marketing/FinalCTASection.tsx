@@ -13,10 +13,13 @@ export default function FinalCTASection() {
           </h2>
         </FadeIn>
         <FadeIn delay={0.1}>
-          <p className="text-text-light/70 text-lg mb-10 leading-relaxed">
-            Book a 20-minute walkthrough. We&apos;ll show you your sales floor
-            through Plaibook &mdash; where leads are slipping, where reps are
-            struggling, and where money is sitting on the table.
+          <p className="text-text-light/70 text-lg mb-4 leading-relaxed">
+            We&apos;ll connect to your calls, backfill 30&nbsp;days of data, and
+            show you exactly where the money is going&thinsp;&mdash;&thinsp;free.
+          </p>
+          <p className="text-text-light/50 text-sm mb-10 leading-relaxed">
+            We&apos;re not an SMS blast tool. We listen to your calls first, find
+            the right leads, then follow up intelligently.
           </p>
         </FadeIn>
         <FadeIn delay={0.2}>
@@ -24,8 +27,7 @@ export default function FinalCTASection() {
             Book a Demo
           </Button>
           <p className="text-text-light/50 text-sm mt-6">
-            No credit card. No commitment. Just a clear look at what
-            you&apos;re missing.
+            Free for 30&nbsp;days. No credit card. Cancel anytime.
           </p>
         </FadeIn>
       </div>

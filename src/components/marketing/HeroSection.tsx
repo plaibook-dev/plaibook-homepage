@@ -2,58 +2,50 @@
 
 import Button from "@/components/ui/Button";
 import FadeIn from "@/components/marketing/FadeIn";
-import LeakyFunnel from "@/components/marketing/LeakyFunnel";
+import PixelatedVideo from "@/components/ui/PixelatedVideo";
 import { DEMO_URL } from "@/lib/constants";
 
 export default function HeroSection() {
   return (
     <section
       id="hero"
-      className="relative min-h-screen bg-gradient-to-br from-bg-dark via-[#162032] to-[#1a2840] noise-texture overflow-hidden"
+      className="relative min-h-[90vh] overflow-hidden"
     >
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-16 md:pt-32 md:pb-24">
-        <div className="grid md:grid-cols-[55%_45%] gap-12 md:gap-8 items-center">
+      <PixelatedVideo
+        src="https://plaibook-homepage-assets.s3.amazonaws.com/videos/hero-background.mp4"
+      />
+      <div className="absolute inset-0 z-10 flex items-center justify-end px-4 sm:px-6 lg:px-24">
+        <div>
           {/* Text column */}
-          <div>
+          <div className="bg-black/30 backdrop-blur-md rounded-2xl p-8 max-w-xl" style={{ textShadow: '0 2px 16px rgba(0,0,0,0.7)' }}>
             <FadeIn direction="up" delay={0.1}>
               <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl text-text-light font-bold leading-tight">
-                Pest control companies are bleeding money.
+                Your Call Center
                 <br />
-                <span className="text-primary">
-                  Plaibook finds where and stops it.
-                </span>
+                <span className="text-accent-red">Bleeds Money</span>
               </h1>
             </FadeIn>
 
             <FadeIn direction="up" delay={0.25}>
-              <p className="mt-6 text-lg text-text-light/80 max-w-xl leading-relaxed">
-                We listen to every sales call your team makes, show you exactly
-                where deals are breaking down, and recover missed revenue over
-                text &mdash; contracts signed, payments collected, no human
-                follow-up required.
+              <p className="mt-6 text-xl text-text-light/90 font-medium leading-relaxed">
+                Plaibook shows you exactly how much revenue you&apos;re losing,
+                which objections are killing your deals, and then recovers the
+                ones your reps dropped &mdash; automatically.
               </p>
             </FadeIn>
 
             <FadeIn direction="up" delay={0.4}>
-              <div className="mt-8 flex flex-wrap items-center gap-4">
+              <div className="mt-8 flex flex-wrap items-center gap-6">
                 <Button href={DEMO_URL} variant="primary" size="lg">
                   Book a Demo
                 </Button>
                 <a
                   href="#how-it-works"
-                  className="text-text-light/70 hover:text-text-light text-sm font-medium transition-colors"
+                  className="text-text-light/80 hover:text-text-light text-base font-medium transition-colors"
                 >
-                  See where the money goes &darr;
+                  See how much you&apos;re losing &darr;
                 </a>
               </div>
-            </FadeIn>
-          </div>
-
-          {/* Visual column */}
-          <div className="relative">
-            <div className="absolute -inset-12 bg-primary/10 rounded-full blur-3xl pointer-events-none" />
-            <FadeIn direction="up" delay={0.5} type="dramatic">
-              <LeakyFunnel className="relative" />
             </FadeIn>
           </div>
         </div>

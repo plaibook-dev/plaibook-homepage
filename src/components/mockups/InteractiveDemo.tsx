@@ -4,13 +4,14 @@ import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import BrowserFrame from "@/components/ui/BrowserFrame";
 import DashboardScreen from "@/components/mockups/interactive-demo/DashboardScreen";
-import RepDrilldownScreen from "@/components/mockups/interactive-demo/RepDrilldownScreen";
+import ObjectionDrilldownScreen from "@/components/mockups/interactive-demo/RepDrilldownScreen";
 import CallDetailScreen from "@/components/mockups/interactive-demo/CallDetailScreen";
+import { OBJECTION_CATEGORIES } from "@/components/mockups/data/demo-objections";
 
 type Screen =
   | { type: "dashboard" }
-  | { type: "rep-drilldown"; agentName: string }
-  | { type: "call-detail"; callId: string; agentName: string };
+  | { type: "objection-drilldown"; objection: string }
+  | { type: "call-detail"; callId: string; objection: string };
 
 const sceneVariants = {
   initial: { opacity: 0, y: 12 },
@@ -42,20 +43,25 @@ export default function InteractiveDemo({
     });
   }
 
-  // Extract agentName for breadcrumb
-  const agentName =
-    screen.type === "rep-drilldown"
-      ? screen.agentName
+  // Extract objection info for breadcrumb
+  const objectionId =
+    screen.type === "objection-drilldown"
+      ? screen.objection
       : screen.type === "call-detail"
-        ? screen.agentName
+        ? screen.objection
         : null;
+
+  const objectionLabel = objectionId
+    ? OBJECTION_CATEGORIES.find((o) => o.id === objectionId)?.shortName ??
+      objectionId
+    : null;
 
   // Build a unique key for AnimatePresence
   const screenKey =
     screen.type === "dashboard"
       ? "dashboard"
-      : screen.type === "rep-drilldown"
-        ? `rep-${screen.agentName}`
+      : screen.type === "objection-drilldown"
+        ? `objection-${screen.objection}`
         : `call-${screen.callId}`;
 
   return (
@@ -71,31 +77,31 @@ export default function InteractiveDemo({
             className={
               screen.type === "dashboard"
                 ? "text-slate-700 font-medium"
-                : "text-primary hover:underline"
+                : "text-red-500 hover:underline"
             }
           >
             Dashboard
           </button>
-          {screen.type !== "dashboard" && agentName && (
+          {screen.type !== "dashboard" && objectionLabel && (
             <>
               <span className="text-slate-300">/</span>
               <button
                 onClick={() => {
                   if (screen.type === "call-detail") {
                     setScreen({
-                      type: "rep-drilldown",
-                      agentName: screen.agentName,
+                      type: "objection-drilldown",
+                      objection: screen.objection,
                     });
                     setHistory([{ type: "dashboard" }]);
                   }
                 }}
                 className={
-                  screen.type === "rep-drilldown"
+                  screen.type === "objection-drilldown"
                     ? "text-slate-700 font-medium"
-                    : "text-primary hover:underline"
+                    : "text-red-500 hover:underline"
                 }
               >
-                {agentName}
+                {objectionLabel}
               </button>
             </>
           )}
@@ -120,20 +126,20 @@ export default function InteractiveDemo({
             >
               {screen.type === "dashboard" && (
                 <DashboardScreen
-                  onSelectRep={(name) =>
-                    navigateTo({ type: "rep-drilldown", agentName: name })
+                  onSelectObjection={(id) =>
+                    navigateTo({ type: "objection-drilldown", objection: id })
                   }
                   firstVisit={firstVisit}
                 />
               )}
-              {screen.type === "rep-drilldown" && (
-                <RepDrilldownScreen
-                  agentName={screen.agentName}
+              {screen.type === "objection-drilldown" && (
+                <ObjectionDrilldownScreen
+                  objectionId={screen.objection}
                   onSelectCall={(callId) =>
                     navigateTo({
                       type: "call-detail",
                       callId,
-                      agentName: screen.agentName,
+                      objection: screen.objection,
                     })
                   }
                   onBack={goBack}
@@ -142,7 +148,7 @@ export default function InteractiveDemo({
               {screen.type === "call-detail" && (
                 <CallDetailScreen
                   callId={screen.callId}
-                  agentName={screen.agentName}
+                  objection={screen.objection}
                   onBack={goBack}
                 />
               )}

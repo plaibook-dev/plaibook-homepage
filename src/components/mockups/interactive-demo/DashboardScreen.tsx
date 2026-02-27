@@ -9,40 +9,34 @@ import {
   Cell,
   ResponsiveContainer,
 } from "recharts";
-import { DEMO_AGENTS } from "@/components/mockups/data/demo-agents";
-import { DEMO_CALLS } from "@/components/mockups/data/demo-calls";
+import {
+  OBJECTION_CATEGORIES,
+  OBJECTION_SUMMARY,
+} from "@/components/mockups/data/demo-objections";
 
 interface DashboardScreenProps {
-  onSelectRep: (agentName: string) => void;
+  onSelectObjection: (objectionId: string) => void;
   firstVisit: boolean;
 }
 
-const chartData = DEMO_AGENTS.slice(0, 6).map((a) => ({
-  name: a.name.split(" ")[0] + " " + a.name.split(" ")[1][0] + ".",
-  fullName: a.name,
-  closeRate: Math.round(a.closeRate * 100),
+const chartData = OBJECTION_CATEGORIES.map((o) => ({
+  name: o.shortName,
+  id: o.id,
+  revenueLost: o.revenueLost,
+  label: `$${(o.revenueLost / 1000).toFixed(1)}K`,
 }));
 
-const totalCalls = DEMO_AGENTS.slice(0, 6).reduce(
-  (sum, a) => sum + a.totalCalls,
-  0
-);
-const avgQC = Math.round(
-  (DEMO_AGENTS.slice(0, 6).reduce((sum, a) => sum + a.checkpointScore, 0) /
-    6) *
-    100
-);
-const dealsClosed = DEMO_CALLS.filter((c) => c.outcome === "sold").length;
-const dealsLost = DEMO_CALLS.filter(
-  (c) => c.outcome === "unqualified" || c.outcome === "abandoned"
-).length;
+const DEFAULT_FILL = "#f87171"; // red-400
+const HOVER_FILL = "#ef4444"; // red-500
+const DIMMED_FILL = "#fca5a5"; // red-300
 
-const DEFAULT_FILL = "#cbd5e1";
-const ACTIVE_FILL = "#6AA89A";
-const HOVER_FILL = "#7bb8ab";
+function formatDollars(n: number): string {
+  if (n >= 1000) return `$${(n / 1000).toFixed(0)}K`;
+  return `$${n.toLocaleString()}`;
+}
 
 export default function DashboardScreen({
-  onSelectRep,
+  onSelectObjection,
   firstVisit,
 }: DashboardScreenProps) {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
@@ -50,46 +44,68 @@ export default function DashboardScreen({
   return (
     <div className="p-3">
       <p className="text-[10px] text-slate-500 mb-2 font-heading font-semibold">
-        Close Rate by Agent
+        Revenue Lost by Objection
       </p>
 
-      <ResponsiveContainer width="100%" height={160}>
+      <ResponsiveContainer width="100%" height={170}>
         <BarChart
           data={chartData}
-          layout="horizontal"
-          margin={{ top: 0, right: 4, bottom: 0, left: 4 }}
+          layout="vertical"
+          margin={{ top: 0, right: 40, bottom: 0, left: 4 }}
           onMouseLeave={() => setHoveredIndex(null)}
         >
           <XAxis
-            dataKey="name"
+            type="number"
             tick={{ fontSize: 9, fill: "#94a3b8" }}
             axisLine={false}
             tickLine={false}
+            tickFormatter={(v: number) => `$${(v / 1000).toFixed(0)}K`}
           />
           <YAxis
-            tick={{ fontSize: 9, fill: "#94a3b8" }}
+            type="category"
+            dataKey="name"
+            tick={{ fontSize: 9, fill: "#64748b" }}
             axisLine={false}
             tickLine={false}
-            domain={[0, 50]}
+            width={90}
           />
           <Bar
-            dataKey="closeRate"
-            radius={[3, 3, 0, 0]}
+            dataKey="revenueLost"
+            radius={[0, 3, 3, 0]}
             cursor="pointer"
             onMouseEnter={(_, index) => setHoveredIndex(index)}
             onClick={(_, index) => {
-              if (typeof index === "number") onSelectRep(chartData[index].fullName);
+              if (typeof index === "number")
+                onSelectObjection(chartData[index].id);
+            }}
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            label={(props: any) => {
+              const x = Number(props.x ?? 0);
+              const y = Number(props.y ?? 0);
+              const w = Number(props.width ?? 0);
+              const v = Number(props.value ?? 0);
+              return (
+                <text
+                  x={x + w + 4}
+                  y={y + 10}
+                  fontSize={10}
+                  fill="#94a3b8"
+                  fontFamily="monospace"
+                >
+                  ${(v / 1000).toFixed(1)}K
+                </text>
+              );
             }}
           >
             {chartData.map((_, i) => (
               <Cell
                 key={i}
                 fill={
-                  hoveredIndex === i
-                    ? HOVER_FILL
-                    : hoveredIndex !== null
-                      ? DEFAULT_FILL
-                      : DEFAULT_FILL
+                  hoveredIndex === null
+                    ? DEFAULT_FILL
+                    : hoveredIndex === i
+                      ? HOVER_FILL
+                      : DIMMED_FILL
                 }
               />
             ))}
@@ -101,39 +117,33 @@ export default function DashboardScreen({
       {firstVisit && (
         <div className="flex items-center justify-center gap-1.5 mt-2">
           <span className="relative flex h-2 w-2">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75" />
-            <span className="relative inline-flex rounded-full h-2 w-2 bg-primary" />
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75" />
+            <span className="relative inline-flex rounded-full h-2 w-2 bg-red-400" />
           </span>
-          <span className="text-[10px] text-primary font-medium">
-            Click any bar to explore
+          <span className="text-[10px] text-red-500 font-medium">
+            Click any objection to see the calls behind it
           </span>
         </div>
       )}
 
       {/* Summary stats row */}
-      <div className="grid grid-cols-4 gap-2 mt-3">
+      <div className="grid grid-cols-3 gap-2 mt-3">
         <div className="bg-white rounded-lg p-2 text-center">
-          <p className="text-[10px] text-slate-500">Calls This Week</p>
-          <p className="text-sm font-mono font-semibold text-slate-800">
-            {totalCalls}
+          <p className="text-[10px] text-slate-500">Total Lost</p>
+          <p className="text-sm font-mono font-semibold text-red-600">
+            {formatDollars(OBJECTION_SUMMARY.totalLost)}
           </p>
         </div>
         <div className="bg-white rounded-lg p-2 text-center">
-          <p className="text-[10px] text-slate-500">Avg QC Score</p>
+          <p className="text-[10px] text-slate-500">Qualified Unclosed</p>
           <p className="text-sm font-mono font-semibold text-slate-800">
-            {avgQC}%
+            {OBJECTION_SUMMARY.qualifiedUnclosed} leads
           </p>
         </div>
         <div className="bg-white rounded-lg p-2 text-center">
-          <p className="text-[10px] text-slate-500">Deals Closed</p>
-          <p className="text-sm font-mono font-semibold text-slate-800">
-            {dealsClosed}
-          </p>
-        </div>
-        <div className="bg-white rounded-lg p-2 text-center">
-          <p className="text-[10px] text-slate-500">Deals Lost</p>
-          <p className="text-sm font-mono font-semibold text-slate-800">
-            {dealsLost}
+          <p className="text-[10px] text-slate-500">Recoverable</p>
+          <p className="text-sm font-mono font-semibold text-emerald-600">
+            {formatDollars(OBJECTION_SUMMARY.recoverable)}
           </p>
         </div>
       </div>
