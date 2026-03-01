@@ -28,12 +28,6 @@ const DollarIcon = () => (
   </svg>
 );
 
-const RecurringIcon = () => (
-  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-    <path strokeLinecap="round" strokeLinejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
-  </svg>
-);
-
 const ClockIcon = () => (
   <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
     <path strokeLinecap="round" strokeLinejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -53,12 +47,11 @@ export default function HeroDashboard({ className = "" }: { className?: string }
     <BrowserFrame className={className}>
       <div className="bg-slate-50 p-3">
         {/* KPI row */}
-        <div className="grid grid-cols-3 lg:grid-cols-6 gap-2 mb-3">
+        <div className="grid grid-cols-3 lg:grid-cols-5 gap-2 mb-3">
           <MockupKPICard icon={<PhoneIcon />} label="Sales Calls" value="786" subtitle="This month" />
           <MockupKPICard icon={<CheckIcon />} label="Qualified Rate" value="67.2%" subtitle="+4.1% vs last" />
           <MockupKPICard icon={<TargetIcon />} label="Close Rate" value="31.4%" subtitle="+2.8% vs last" />
           <MockupKPICard icon={<DollarIcon />} label="Revenue" value="$142,800" subtitle="Feb 2026" />
-          <MockupKPICard icon={<RecurringIcon />} label="Recurring Mix" value="78.2%" subtitle="Subscriptions" />
           <MockupKPICard icon={<ClockIcon />} label="Avg Duration" value="5m 42s" subtitle="Talk time" />
         </div>
 

@@ -9,17 +9,12 @@ export default function FinalCTASection() {
       <div className="text-center max-w-2xl mx-auto">
         <FadeIn>
           <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-text-light mb-6">
-            See where your revenue is leaking.
+            Ready to stop leaving money on the table?
           </h2>
         </FadeIn>
         <FadeIn delay={0.1}>
-          <p className="text-text-light/70 text-lg mb-4 leading-relaxed">
-            We&apos;ll connect to your calls, backfill 30&nbsp;days of data, and
-            show you exactly where the money is going&thinsp;&mdash;&thinsp;free.
-          </p>
-          <p className="text-text-light/50 text-sm mb-10 leading-relaxed">
-            We&apos;re not an SMS blast tool. We listen to your calls first, find
-            the right leads, then follow up intelligently.
+          <p className="text-text-light/70 text-lg mb-10 leading-relaxed">
+            See what Plaibook finds in your first 30&nbsp;days&thinsp;&mdash;&thinsp;free.
           </p>
         </FadeIn>
         <FadeIn delay={0.2}>

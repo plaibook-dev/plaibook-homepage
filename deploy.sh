@@ -80,10 +80,9 @@ else
 fi
 ENDSSH
 
-# Step 5: Clean up local artifacts
+# Step 6: Clean up local artifacts
 printf "\n----> Cleaning up local artifacts\n"
 rm -rf deploy-bundle
 rm -f deploy.tar.gz
 
-printf "\n----> Deployment complete! Service '$service' is running on port $port\n"
-printf "----> Make sure to update the Caddyfile if this is a new deployment\n"
+printf "\n----> Deployment complete! %s is running on port %s\n" "$service" "$port"

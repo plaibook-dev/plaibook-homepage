@@ -1,54 +1,123 @@
 "use client";
 
+import Image from "next/image";
 import Button from "@/components/ui/Button";
 import FadeIn from "@/components/marketing/FadeIn";
-import PixelatedVideo from "@/components/ui/PixelatedVideo";
+import HeroDashboard from "@/components/mockups/HeroDashboard";
 import { DEMO_URL } from "@/lib/constants";
+import HeroParticles from "@/components/marketing/HeroParticles";
+
+const CLIENT_LOGOS = [
+  { name: "Frontline Pest Control", src: "/images/clients/frontline.webp", url: "https://www.frontlinepestcontrol.com", h: "h-14" },
+  { name: "BRD Pest Solutions", src: "/images/clients/brd.png", url: "https://brdpestsolutions.com", h: "h-13" },
+  { name: "Ridd Pest Control", src: "/images/clients/ridd.png", url: "https://www.ridd.com", h: "h-7" },
+  { name: "Vinx Pest Control", src: "/images/clients/vinx.png", url: "https://vinxpestcontrol.com", h: "h-10" },
+  { name: "Vult Inside Sales", src: "/images/clients/vult.png", url: "https://vultinsidesales.com", h: "h-7" },
+  { name: "BugBros", src: "/images/clients/bugbros.webp", url: "https://bugbros.com", h: "h-12" },
+  { name: "Preventive Pest Control", src: "/images/clients/preventive.png", url: "https://www.preventivepestcontrol.com", h: "h-18" },
+  { name: "Rock Pest Control", src: "/images/clients/rockpest.png", url: "https://rockpest.com", h: "h-9" },
+  { name: "Evo Pest Control", src: "/images/clients/evo.webp", url: "https://evopest.com", h: "h-9" },
+  { name: "Arete Pest Control", src: "/images/clients/arete.gif", url: "https://aretepestcontrol.com", h: "h-14" },
+  { name: "Atlas Pest Services", src: "/images/clients/atlas.png", url: "https://atlaspest.com", h: "h-9" },
+  { name: "PestCom", src: "/images/clients/pestcom.png", url: "https://www.pestcom.com", h: "h-9" },
+];
 
 export default function HeroSection() {
   return (
     <section
       id="hero"
-      className="relative min-h-[90vh] overflow-hidden"
+      className="relative min-h-[90vh] overflow-hidden bg-bg-dark"
     >
-      <PixelatedVideo
-        src="https://plaibook-homepage-assets.s3.amazonaws.com/videos/hero-background.mp4"
+      {/* Particles — confined above the client carousel */}
+      <div className="absolute inset-x-0 top-0 bottom-[140px] lg:bottom-[160px] overflow-hidden">
+        <HeroParticles />
+      </div>
+
+      {/* Subtle background patterns */}
+      <div className="absolute inset-0 noise-texture" />
+      <div
+        className="absolute inset-0 opacity-[0.04]"
+        style={{
+          backgroundImage:
+            "radial-gradient(circle at 1px 1px, rgba(255,255,255,0.3) 1px, transparent 0)",
+          backgroundSize: "32px 32px",
+        }}
       />
-      <div className="absolute inset-0 z-10 flex items-center justify-end px-4 sm:px-6 lg:px-24">
-        <div>
-          {/* Text column */}
-          <div className="bg-black/30 backdrop-blur-md rounded-2xl p-8 max-w-xl" style={{ textShadow: '0 2px 16px rgba(0,0,0,0.7)' }}>
+      <div
+        className="absolute inset-0 opacity-20"
+        style={{
+          background:
+            "radial-gradient(ellipse 60% 50% at 70% 50%, rgba(106,168,154,0.15), transparent)",
+        }}
+      />
+
+      {/* Main content */}
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-16 lg:pt-40 lg:pb-20">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          {/* Left — copy + CTA */}
+          <div>
             <FadeIn direction="up" delay={0.1}>
-              <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl text-text-light font-bold leading-tight">
-                Your Call Center
-                <br />
-                <span className="text-accent-red">Bleeds Money</span>
+              <h1 className="font-heading text-4xl md:text-5xl lg:text-[3.5rem] text-text-light font-bold leading-[1.1] tracking-tight">
+                Everything you need to hit all your sales targets
               </h1>
             </FadeIn>
 
             <FadeIn direction="up" delay={0.25}>
-              <p className="mt-6 text-xl text-text-light/90 font-medium leading-relaxed">
-                Plaibook shows you exactly how much revenue you&apos;re losing,
-                which objections are killing your deals, and then recovers the
-                ones your reps dropped &mdash; automatically.
+              <p className="mt-6 text-lg text-text-light/70 leading-relaxed max-w-lg">
+                Score every call, find where deals die, and recover lost revenue
+                over text&thinsp;&mdash;&thinsp;automatically.
               </p>
             </FadeIn>
 
             <FadeIn direction="up" delay={0.4}>
-              <div className="mt-8 flex flex-wrap items-center gap-6">
+              <div className="mt-8">
                 <Button href={DEMO_URL} variant="primary" size="lg">
-                  Book a Demo
+                  Get a Demo
                 </Button>
-                <a
-                  href="#how-it-works"
-                  className="text-text-light/80 hover:text-text-light text-base font-medium transition-colors"
-                >
-                  See how much you&apos;re losing &darr;
-                </a>
               </div>
             </FadeIn>
           </div>
+
+          {/* Right — interactive platform demo */}
+          <FadeIn direction="up" delay={0.3}>
+            <div className="lg:translate-x-4">
+              <HeroDashboard />
+            </div>
+          </FadeIn>
         </div>
+
+        {/* Client logo carousel */}
+        <FadeIn direction="up" delay={0.55}>
+          <div className="mt-16 lg:mt-20 border-t border-white/10 pt-8">
+            <p className="text-xs font-mono uppercase tracking-widest text-text-light/30 mb-5">
+              Trusted by
+            </p>
+            <div className="relative overflow-hidden">
+              {/* Fade edges */}
+              <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-gradient-to-r from-bg-dark to-transparent" />
+              <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-gradient-to-l from-bg-dark to-transparent" />
+              <div className="flex animate-marquee w-max items-center hover:[animation-play-state:paused]" style={{ animationDuration: "48s" }}>
+                {[...CLIENT_LOGOS, ...CLIENT_LOGOS].map((client, i) => (
+                  <a
+                    key={`${client.name}-${i}`}
+                    href={client.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex-shrink-0 h-14 w-auto flex items-center mr-12"
+                  >
+                    <Image
+                      src={client.src}
+                      alt={client.name}
+                      width={140}
+                      height={40}
+                      className={`${client.h} w-auto object-contain brightness-0 invert opacity-50 hover:opacity-80 transition-opacity`}
+                    />
+                  </a>
+                ))}
+              </div>
+            </div>
+          </div>
+        </FadeIn>
       </div>
     </section>
   );

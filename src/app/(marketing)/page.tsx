@@ -1,14 +1,14 @@
 import type { Metadata } from "next";
 import HeroSection from "@/components/marketing/HeroSection";
+import DisconnectedSystemsSection from "@/components/marketing/DisconnectedSystemsSection";
 import HowItWorksSection from "@/components/marketing/HowItWorksSection";
-import ProofSection from "@/components/marketing/ProofSection";
-import SalesFloorSection from "@/components/marketing/SalesFloorSection";
-import TrustSection from "@/components/marketing/TrustSection";
+import TestimonialBanner from "@/components/marketing/TestimonialBanner";
+import CaseStudyVideoSection from "@/components/marketing/CaseStudyVideoSection";
 import FinalCTASection from "@/components/marketing/FinalCTASection";
 import type { WithContext, SoftwareApplication, FAQPage } from "schema-dts";
 
 export const metadata: Metadata = {
-  title: "Plaibook — Pest Control Companies Are Bleeding Money. We Fix That.",
+  title: "Plaibook — Everything You Need to Hit All Your Sales Targets",
   description:
     "Plaibook shows you exactly how much revenue your call center is losing, which objections are killing deals, and recovers the ones your reps dropped — contracts signed, payments collected, automatically.",
   alternates: {
@@ -89,9 +89,9 @@ export default function HomePage() {
       />
       <HeroSection />
       <HowItWorksSection />
-      <ProofSection />
-      <SalesFloorSection />
-      <TrustSection />
+      <DisconnectedSystemsSection />
+      <TestimonialBanner />
+      <CaseStudyVideoSection />
       <FinalCTASection />
     </>
   );

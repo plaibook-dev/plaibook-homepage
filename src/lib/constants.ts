@@ -13,53 +13,59 @@ export const NAV_LINKS = [
 ] as const;
 
 export const TESTIMONIALS = {
-  nickBoettcher: {
+  kellin: {
     quote:
-      "I know reps are human. They'll get a call, they won't close it, and then it just disappears. They don't input it. We're paying $75, $100 for these leads and they're just slipping through the cracks.",
-    name: "Nick Boettcher",
-    company: "Frontline Pest Solutions",
+      "Sales reps are gonna lie. The leaderboard said one of my guys was at 100% close rate — because he was only submitting calls he actually sold. Plaibook helps us figure out the leaks. Now that we know them, we can start fixing them.",
+    name: "Kellin",
+    company: "Vult",
   },
-  davidEvans: {
+  tyler: {
     quote:
-      "You can pick out the top five skills and say, 'Joe — he's phenomenal at overcoming objections but he's horrible at transitioning into the close.' That's been really helpful for me to dial down my coaching.",
-    name: "David Evans",
-    company: "Atlas Pest Services",
+      "I'm a broken record telling them to mention the guarantee. If they can see a score showing they're missing it 40% of the time, that might actually sink in.",
+    name: "Tyler",
+    company: "Lawn Guard",
   },
-  mattMuller: {
+  isaac: {
     quote:
-      "If we don't close it on that call, it's almost like — it would be better to have a system that picks up right after and just runs with it. Way better than a person, honestly.",
-    name: "Matt Muller",
-    company: "Rock Pest Control",
+      "The TV display is the best part. They're always just looking at the screen — 'Where am I at? What do I gotta do?'",
+    name: "Isaac",
+    company: "Ridd",
   },
-  tannerCrookston: {
+  nick: {
     quote:
-      "We sold so many mosquito deals that they ran out of mosquito product and had to shut us off.",
-    name: "Tanner Crookston",
-    company: "Plaibook",
+      "We're losing leads that we're paying $75, $100 for. That's the biggest frustration for a pest control company.",
+    name: "Nick",
+    company: "Frontline",
   },
-  isaacHunter: {
+  braden: {
     quote:
-      "I'll be able to go back to my lead providers with actual numbers. A lot of the times it's like, 'Dude, my guys are telling me your leads suck.' This puts the buckets together — 'No, they do, and this is why they're sucking.'",
-    name: "Isaac Hunter",
-    company: "Ridd Pest Control",
+      "The playbook score shows — did they confirm the address, confirm the payment, offer termite? You just look at it and go, 'okay, this rep didn't build value and then didn't close. That's what we focus on.'",
+    name: "Braden",
+    company: "Frontline",
   },
-  brianVictor: {
+  atlas: {
     quote:
-      "I wish I could have something where — if they hear from someone besides us, like, 'This computer is thinking you were short with that customer' — maybe they'd take the feedback better than just hearing it from me.",
-    name: "Brian Victor",
-    company: "Preventive Pest Control",
-  },
-  ericBassett: {
-    quote:
-      "You guys are speaking my language. Some business owners, especially pest control guys, they just don't understand the relationship between marketing, sales, operations, retention. If you're not able to evaluate all those things, you're just guessing.",
-    name: "Eric Bassett",
-    company: "Natura Pest Control",
+      "My guys tell me the leads suck. Now I can go back with actual numbers — 'No, here's why they're not closing.'",
+    name: "",
+    company: "Atlas Pest",
   },
   jeffDavis: {
     quote:
-      "Lead attribution and buyer journey is something a sales CRM normally solves. And they don't exist in this market. Solving for all three of those in one — guys, that's pretty freaking brilliant.",
+      "Lead attribution and buyer journey — a sales CRM should solve that, and they don't exist in this market. Solving for all three in one is pretty freaking brilliant.",
     name: "Jeff Davis",
-    company: "Coalmarch",
+    company: "CoalMarch",
+  },
+  scott: {
+    quote:
+      "My guy Dave has been with me for ten years, he knows exactly what to say. But the new guys just freeze up. If they can click a button and see the answer, that changes the game. Saves me hours of ride-alongs.",
+    name: "Scott",
+    company: "Ruva Pest",
+  },
+  daveBRD: {
+    quote:
+      "I can't track how many missed calls we're making. I can't tell who's missing them. We can't grow and keep people motivated until we have a system to actually analyze the data.",
+    name: "Dave",
+    company: "BRD",
   },
   taylorChristensen: {
     quote:
