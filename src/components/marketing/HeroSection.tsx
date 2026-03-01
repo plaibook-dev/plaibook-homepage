@@ -7,18 +7,18 @@ import { DEMO_URL } from "@/lib/constants";
 import HeroParticles from "@/components/marketing/HeroParticles";
 
 const CLIENT_LOGOS = [
-  { name: "Frontline Pest Control", src: "/images/clients/frontline.webp", url: "https://www.frontlinepestcontrol.com", h: "h-14" },
-  { name: "BRD Pest Solutions", src: "/images/clients/brd.png", url: "https://brdpestsolutions.com", h: "h-[3.25rem]" },
-  { name: "Ridd Pest Control", src: "/images/clients/ridd.png", url: "https://www.ridd.com", h: "h-7" },
-  { name: "Vinx Pest Control", src: "/images/clients/vinx.png", url: "https://vinxpestcontrol.com", h: "h-10" },
-  { name: "Vult Inside Sales", src: "/images/clients/vult.png", url: "https://vultinsidesales.com", h: "h-7" },
-  { name: "BugBros", src: "/images/clients/bugbros.webp", url: "https://bugbros.com", h: "h-12" },
-  { name: "Preventive Pest Control", src: "/images/clients/preventive.png", url: "https://www.preventivepestcontrol.com", h: "h-[4.5rem]" },
-  { name: "Rock Pest Control", src: "/images/clients/rockpest.png", url: "https://rockpest.com", h: "h-9" },
-  { name: "Evo Pest Control", src: "/images/clients/evo.webp", url: "https://evopest.com", h: "h-9" },
-  { name: "Arete Pest Control", src: "/images/clients/arete.gif", url: "https://aretepestcontrol.com", h: "h-14" },
-  { name: "Atlas Pest Services", src: "/images/clients/atlas.png", url: "https://atlaspest.com", h: "h-9" },
-  { name: "PestCom", src: "/images/clients/pestcom.png", url: "https://www.pestcom.com", h: "h-9" },
+  { name: "Frontline Pest Control", src: "/images/clients/frontline.webp", url: "https://www.frontlinepestcontrol.com", h: 56 },
+  { name: "BRD Pest Solutions", src: "/images/clients/brd.png", url: "https://brdpestsolutions.com", h: 52 },
+  { name: "Ridd Pest Control", src: "/images/clients/ridd.png", url: "https://www.ridd.com", h: 28 },
+  { name: "Vinx Pest Control", src: "/images/clients/vinx.png", url: "https://vinxpestcontrol.com", h: 40 },
+  { name: "Vult Inside Sales", src: "/images/clients/vult.png", url: "https://vultinsidesales.com", h: 28 },
+  { name: "BugBros", src: "/images/clients/bugbros.webp", url: "https://bugbros.com", h: 34 },
+  { name: "Preventive Pest Control", src: "/images/clients/preventive.png", url: "https://www.preventivepestcontrol.com", h: 48 },
+  { name: "Rock Pest Control", src: "/images/clients/rockpest.png", url: "https://rockpest.com", h: 36 },
+  { name: "Evo Pest Control", src: "/images/clients/evo.webp", url: "https://evopest.com", h: 36 },
+  { name: "Arete Pest Control", src: "/images/clients/arete.gif", url: "https://aretepestcontrol.com", h: 40 },
+  { name: "Atlas Pest Services", src: "/images/clients/atlas.png", url: "https://atlaspest.com", h: 36 },
+  { name: "PestCom", src: "/images/clients/pestcom.png", url: "https://www.pestcom.com", h: 36 },
 ];
 
 export default function HeroSection() {
@@ -107,7 +107,8 @@ export default function HeroSection() {
                     <img
                       src={client.src}
                       alt={client.name}
-                      className={`${client.h} w-auto object-contain brightness-0 invert opacity-50 hover:opacity-80 transition-opacity`}
+                      style={{ height: client.h }}
+                      className="w-auto object-contain brightness-0 invert opacity-50 hover:opacity-80 transition-opacity"
                     />
                   </a>
                 ))}
