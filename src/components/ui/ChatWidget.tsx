@@ -7,9 +7,33 @@ import {
   useCallback,
   FormEvent,
   PointerEvent as ReactPointerEvent,
+  ReactNode,
 } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { MessageCircle, X, Send } from "lucide-react";
+
+function renderMessageContent(text: string): ReactNode {
+  // Split on markdown links [label](url) and bare URLs
+  const parts = text.split(/(\[[^\]]+\]\(https?:\/\/[^)]+\)|https?:\/\/[^\s)]+)/g);
+  return parts.map((part, i) => {
+    const mdMatch = part.match(/^\[([^\]]+)\]\((https?:\/\/[^)]+)\)$/);
+    if (mdMatch) {
+      return (
+        <a key={i} href={mdMatch[2]} target="_blank" rel="noopener noreferrer" className="underline hover:opacity-80">
+          {mdMatch[1]}
+        </a>
+      );
+    }
+    if (/^https?:\/\//.test(part)) {
+      return (
+        <a key={i} href={part} target="_blank" rel="noopener noreferrer" className="underline hover:opacity-80">
+          {part}
+        </a>
+      );
+    }
+    return part;
+  });
+}
 
 interface Message {
   role: "user" | "assistant";
@@ -193,7 +217,7 @@ export default function ChatWidget() {
                         : "bg-black/[0.06] text-text-primary rounded-bl-md"
                     }`}
                   >
-                    {msg.content}
+                    {msg.role === "assistant" ? renderMessageContent(msg.content) : msg.content}
                   </div>
                 </motion.div>
               ))}
