@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { TESTIMONIALS } from "@/lib/constants";
 
 const testimonials = Object.values(TESTIMONIALS).map((t) => ({
@@ -9,15 +10,24 @@ const testimonials = Object.values(TESTIMONIALS).map((t) => ({
 }));
 
 export default function TestimonialBanner() {
+  const [isPaused, setIsPaused] = useState(false);
+
   return (
     <section className="bg-surface-alt py-12 sm:py-16 overflow-hidden">
-      <div className="relative">
+      <div
+        className="relative"
+        onMouseEnter={() => setIsPaused(true)}
+        onMouseLeave={() => setIsPaused(false)}
+      >
         {/* Left fade */}
         <div className="absolute left-0 top-0 bottom-0 w-16 sm:w-32 bg-gradient-to-r from-surface-alt to-transparent z-10 pointer-events-none" />
         {/* Right fade */}
         <div className="absolute right-0 top-0 bottom-0 w-16 sm:w-32 bg-gradient-to-l from-surface-alt to-transparent z-10 pointer-events-none" />
 
-        <div className="flex animate-marquee hover:[animation-play-state:paused]">
+        <div
+          className="flex animate-marquee"
+          style={{ animationPlayState: isPaused ? "paused" : "running" }}
+        >
           {[0, 1].map((copy) => (
             <div key={copy} className="flex gap-6 shrink-0 pr-6">
               {testimonials.map((t, i) => (
