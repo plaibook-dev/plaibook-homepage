@@ -64,7 +64,7 @@ export default function HowItWorksSection() {
   return (
     <Section id="how-it-works" bg="white" spacing="none" className="pt-14 pb-16 sm:pb-24">
       <FadeIn direction="up">
-        <p className="font-heading text-2xl md:text-3xl font-bold text-text-primary mb-16">
+        <p className="font-heading text-xl md:text-2xl font-bold text-text-primary mb-16">
           Here&apos;s what happens when you turn Plaibook on.
         </p>
       </FadeIn>
