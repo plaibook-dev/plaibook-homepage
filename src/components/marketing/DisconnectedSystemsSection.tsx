@@ -14,7 +14,8 @@ const pillars = [
         <path strokeLinecap="round" strokeLinejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 0 1 3 19.875v-6.75ZM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V8.625ZM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V4.125Z" />
       </svg>
     ),
-    color: "bg-blue-50 text-blue-600 border-blue-100",
+    color: "bg-blue-50/80 text-blue-600 border-blue-200/60",
+    shadow: "shadow-blue-100/50",
   },
   {
     label: "Sales",
@@ -23,7 +24,8 @@ const pillars = [
         <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z" />
       </svg>
     ),
-    color: "bg-emerald-50 text-emerald-600 border-emerald-100",
+    color: "bg-emerald-50/80 text-emerald-600 border-emerald-200/60",
+    shadow: "shadow-emerald-100/50",
   },
   {
     label: "Ops",
@@ -33,7 +35,8 @@ const pillars = [
         <path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
       </svg>
     ),
-    color: "bg-amber-50 text-amber-600 border-amber-100",
+    color: "bg-amber-50/80 text-amber-600 border-amber-200/60",
+    shadow: "shadow-amber-100/50",
   },
 ];
 
@@ -55,12 +58,12 @@ export default function DisconnectedSystemsSection() {
           {pillars.map((p, i) => (
             <FadeIn key={p.label} direction="up" delay={0.1 + i * 0.1}>
               <div
-                className={`flex flex-col items-center gap-3 rounded-xl border p-4 md:p-6 ${p.color}`}
+                className={`flex flex-col items-center gap-3 rounded-xl border p-5 md:p-7 shadow-md ${p.color} ${p.shadow}`}
               >
-                <div className="w-10 h-10 md:w-12 md:h-12 rounded-lg flex items-center justify-center">
+                <div className="w-11 h-11 md:w-13 md:h-13 rounded-lg flex items-center justify-center">
                   {p.icon}
                 </div>
-                <span className="font-heading font-semibold text-sm md:text-base">
+                <span className="font-heading font-semibold text-sm md:text-base tracking-tight">
                   {p.label}
                 </span>
               </div>
@@ -68,27 +71,60 @@ export default function DisconnectedSystemsSection() {
           ))}
         </div>
 
-        {/* Connector arrows — one from each pillar */}
+        {/* Converging connector lines via SVG */}
         <FadeIn delay={0.5}>
-          <div className="grid grid-cols-3 gap-4 md:gap-8 max-w-2xl mx-auto my-6 md:my-8">
-            {pillars.map((p) => (
-              <div key={p.label} className="flex flex-col items-center">
-                <div className="w-px h-8 bg-primary/40" />
-                <svg className="w-3 h-3 text-primary -mt-px" viewBox="0 0 12 12" fill="currentColor">
-                  <path d="M6 9L1 4h10L6 9z" />
-                </svg>
-              </div>
-            ))}
+          <div className="max-w-2xl mx-auto px-4 md:px-8">
+            <svg
+              viewBox="0 0 300 75"
+              fill="none"
+              className="w-full h-auto my-4 md:my-6"
+              preserveAspectRatio="xMidYMid meet"
+            >
+              {/* Left line */}
+              <path
+                d="M50 0 L50 20 Q50 35 150 45"
+                stroke="currentColor"
+                className="text-primary/30"
+                strokeWidth="1.5"
+                strokeDasharray="4 3"
+              />
+              {/* Center line */}
+              <path
+                d="M150 0 L150 45"
+                stroke="currentColor"
+                className="text-primary/30"
+                strokeWidth="1.5"
+                strokeDasharray="4 3"
+              />
+              {/* Right line */}
+              <path
+                d="M250 0 L250 20 Q250 35 150 45"
+                stroke="currentColor"
+                className="text-primary/30"
+                strokeWidth="1.5"
+                strokeDasharray="4 3"
+              />
+              {/* Continuation downward */}
+              <path
+                d="M150 45 L150 72"
+                stroke="currentColor"
+                className="text-primary/30"
+                strokeWidth="1.5"
+                strokeDasharray="4 3"
+              />
+              {/* Convergence dot */}
+              <circle cx="150" cy="72" r="3" className="fill-primary/40" />
+            </svg>
           </div>
         </FadeIn>
 
         {/* Logo + tagline */}
         <FadeIn delay={0.65}>
-          <div className="flex flex-col items-center gap-4">
-            <div className="w-16 h-16 rounded-2xl shadow-lg shadow-primary/20 flex items-center justify-center bg-white ring-1 ring-primary/20">
+          <div className="flex flex-col items-center gap-5">
+            <div className="w-16 h-16 rounded-2xl shadow-lg shadow-primary/25 flex items-center justify-center bg-white ring-1 ring-primary/15">
               <PlaibookLogo size={40} />
             </div>
-            <p className="font-heading text-lg md:text-xl font-semibold text-text-primary text-center">
+            <p className="font-heading text-lg md:text-xl font-semibold text-text-primary text-center leading-snug">
               Connect your systems, get analytics that act.
             </p>
           </div>
