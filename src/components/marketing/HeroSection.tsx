@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import Button from "@/components/ui/Button";
 import FadeIn from "@/components/marketing/FadeIn";
 import HeroDashboard from "@/components/mockups/HeroDashboard";
@@ -105,11 +104,9 @@ export default function HeroSection() {
                     rel="noopener noreferrer"
                     className="flex-shrink-0 h-14 w-auto flex items-center mr-12"
                   >
-                    <Image
+                    <img
                       src={client.src}
                       alt={client.name}
-                      width={140}
-                      height={40}
                       className={`${client.h} w-auto object-contain brightness-0 invert opacity-50 hover:opacity-80 transition-opacity`}
                     />
                   </a>
