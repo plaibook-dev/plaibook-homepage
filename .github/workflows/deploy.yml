@@ -1,0 +1,69 @@
+name: Deploy to EC2
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Write .env.local
+        run: echo "OPENROUTER_API_KEY=${{ secrets.OPENROUTER_API_KEY }}" > .env.local
+
+      - name: Build
+        run: npm run build
+
+      - name: Prepare standalone bundle
+        run: |
+          rm -rf deploy-bundle
+          mkdir -p deploy-bundle
+          cp -a .next/standalone/. deploy-bundle/
+          mkdir -p deploy-bundle/.next/static
+          cp -r .next/static/* deploy-bundle/.next/static/
+          mkdir -p deploy-bundle/public
+          cp -r public/* deploy-bundle/public/
+          cp .env.local deploy-bundle/.env.local
+          tar -czf deploy.tar.gz -C deploy-bundle .
+
+      - name: Transfer bundle to server
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: 34.238.113.27
+          username: ubuntu
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          source: deploy.tar.gz
+          target: services/plaibook-homepage/
+
+      - name: Extract and restart via PM2
+        uses: appleboy/ssh-action@v1.2.0
+        with:
+          host: 34.238.113.27
+          username: ubuntu
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            cd services/plaibook-homepage
+            tar -xzf deploy.tar.gz
+            rm deploy.tar.gz
+            export PORT=8012
+            export NODE_ENV=production
+            export HOSTNAME=0.0.0.0
+            if pm2 list | grep -q plaibook-homepage; then
+              pm2 restart plaibook-homepage --update-env
+            else
+              PORT=8012 HOSTNAME=0.0.0.0 pm2 start server.js --name plaibook-homepage
+              pm2 save
+            fi
