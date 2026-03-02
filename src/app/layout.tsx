@@ -1,27 +1,6 @@
 import type { Metadata } from "next";
-import { Inter, Plus_Jakarta_Sans, Chivo_Mono } from "next/font/google";
 import "./globals.css";
 import { SITE_NAME, SITE_DESCRIPTION, SITE_URL } from "@/lib/constants";
-
-const inter = Inter({
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--font-inter",
-});
-
-const plusJakartaSans = Plus_Jakarta_Sans({
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--font-plus-jakarta-sans",
-  weight: ["500", "600", "700", "800"],
-});
-
-const chivoMono = Chivo_Mono({
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--font-chivo-mono",
-  weight: ["400"],
-});
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -52,7 +31,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${plusJakartaSans.variable} ${chivoMono.variable}`}>
+    <html lang="en">
+      <head>
+        <link rel="stylesheet" href="https://use.typekit.net/vao3wtk.css" />
+      </head>
       <body className="font-sans antialiased">{children}</body>
     </html>
   );
