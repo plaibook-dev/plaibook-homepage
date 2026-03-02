@@ -87,31 +87,33 @@ export default function HeroSection() {
 
         {/* Client logo carousel */}
         <FadeIn direction="up" delay={0.55}>
-          <div className="mt-16 lg:mt-20 border-t border-white/10 pt-8">
-            <p className="text-xs font-mono uppercase tracking-widest text-text-light/30 mb-5 text-center">
+          <div className="mt-16 lg:mt-20">
+            <p className="text-xs font-mono uppercase tracking-widest text-text-light/30 mb-4 text-center">
               Trusted by:
             </p>
-            <div className="relative overflow-hidden">
-              {/* Fade edges */}
-              <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-gradient-to-r from-bg-dark to-transparent" />
-              <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-gradient-to-l from-bg-dark to-transparent" />
-              <div className="flex animate-marquee w-max items-center hover:[animation-play-state:paused]" style={{ animationDuration: "48s" }}>
-                {[...CLIENT_LOGOS, ...CLIENT_LOGOS].map((client, i) => (
-                  <a
-                    key={`${client.name}-${i}`}
-                    href={client.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex-shrink-0 h-14 w-auto flex items-center mr-12"
-                  >
-                    <img
-                      src={client.src}
-                      alt={client.name}
-                      style={{ height: client.h }}
-                      className="w-auto object-contain brightness-0 invert opacity-50 hover:opacity-80 transition-opacity"
-                    />
-                  </a>
-                ))}
+            <div className="border border-white/10 rounded-2xl p-6 overflow-hidden">
+              <div className="relative">
+                {/* Fade edges */}
+                <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-gradient-to-r from-bg-dark to-transparent" />
+                <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-gradient-to-l from-bg-dark to-transparent" />
+                <div className="flex animate-marquee w-max items-center hover:[animation-play-state:paused]" style={{ animationDuration: "48s" }}>
+                  {[...CLIENT_LOGOS, ...CLIENT_LOGOS].map((client, i) => (
+                    <a
+                      key={`${client.name}-${i}`}
+                      href={client.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex-shrink-0 h-14 w-auto flex items-center mr-12"
+                    >
+                      <img
+                        src={client.src}
+                        alt={client.name}
+                        style={{ height: client.h }}
+                        className="w-auto object-contain brightness-0 invert opacity-50 hover:opacity-80 transition-opacity"
+                      />
+                    </a>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
