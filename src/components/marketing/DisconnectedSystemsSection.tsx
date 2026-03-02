@@ -62,10 +62,10 @@ export default function DisconnectedSystemsSection() {
         </FadeIn>
       </div>
 
-      {/* Diagram */}
+      {/* Diagram - Full width */}
       <div className="mt-16 md:mt-20">
-        {/* Three pillar cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 max-w-4xl mx-auto">
+        {/* Three pillar cards - spread across full width */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-12 lg:gap-16 w-full px-4 md:px-8 lg:px-12">
           {pillars.map((p, i) => (
             <FadeIn key={p.label} direction="up" delay={0.1 + i * 0.1}>
               <div className="flex flex-col items-center">
@@ -75,20 +75,20 @@ export default function DisconnectedSystemsSection() {
                 </span>
                 {/* Integration logos box */}
                 <div
-                  className={`w-full rounded-xl border p-4 md:p-5 shadow-md ${p.color} ${p.shadow}`}
+                  className={`w-full rounded-xl border p-4 md:p-6 shadow-md ${p.color} ${p.shadow}`}
                 >
-                  <div className="flex flex-wrap justify-center items-center gap-3">
+                  <div className="flex flex-wrap justify-center items-center gap-3 md:gap-4">
                     {p.integrations.map((integration) => (
                       <div
                         key={integration.name}
-                        className="relative w-10 h-10 md:w-12 md:h-12 bg-white rounded-lg shadow-sm flex items-center justify-center p-1.5"
+                        className="relative w-12 h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 bg-white rounded-lg shadow-sm flex items-center justify-center p-2"
                         title={integration.name}
                       >
                         <Image
                           src={integration.logo}
                           alt={integration.name}
-                          width={40}
-                          height={40}
+                          width={48}
+                          height={48}
                           className="object-contain w-full h-full"
                         />
                       </div>
@@ -102,16 +102,16 @@ export default function DisconnectedSystemsSection() {
 
         {/* Converging connector lines via SVG */}
         <FadeIn delay={0.5}>
-          <div className="max-w-4xl mx-auto px-4 md:px-8">
+          <div className="w-full px-4 md:px-8 lg:px-12">
             <svg
-              viewBox="0 0 300 75"
+              viewBox="0 0 400 80"
               fill="none"
-              className="w-full h-auto my-4 md:my-6"
+              className="w-full h-auto my-4 md:my-8"
               preserveAspectRatio="xMidYMid meet"
             >
-              {/* Left line */}
+              {/* Left line - from far left */}
               <path
-                d="M50 0 L50 20 Q50 35 150 45"
+                d="M33 0 L33 25 Q33 45 200 55"
                 stroke="currentColor"
                 className="text-primary/30"
                 strokeWidth="1.5"
@@ -119,15 +119,15 @@ export default function DisconnectedSystemsSection() {
               />
               {/* Center line */}
               <path
-                d="M150 0 L150 45"
+                d="M200 0 L200 55"
                 stroke="currentColor"
                 className="text-primary/30"
                 strokeWidth="1.5"
                 strokeDasharray="4 3"
               />
-              {/* Right line */}
+              {/* Right line - from far right */}
               <path
-                d="M250 0 L250 20 Q250 35 150 45"
+                d="M367 0 L367 25 Q367 45 200 55"
                 stroke="currentColor"
                 className="text-primary/30"
                 strokeWidth="1.5"
@@ -135,14 +135,14 @@ export default function DisconnectedSystemsSection() {
               />
               {/* Continuation downward */}
               <path
-                d="M150 45 L150 72"
+                d="M200 55 L200 77"
                 stroke="currentColor"
                 className="text-primary/30"
                 strokeWidth="1.5"
                 strokeDasharray="4 3"
               />
               {/* Convergence dot */}
-              <circle cx="150" cy="72" r="3" className="fill-primary/40" />
+              <circle cx="200" cy="77" r="3" className="fill-primary/40" />
             </svg>
           </div>
         </FadeIn>
