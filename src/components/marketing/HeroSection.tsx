@@ -93,9 +93,6 @@ export default function HeroSection() {
             </p>
             <div className="border border-white/10 rounded-2xl p-6 overflow-hidden">
               <div className="relative">
-                {/* Fade edges */}
-                <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-gradient-to-r from-bg-dark to-transparent" />
-                <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-gradient-to-l from-bg-dark to-transparent" />
                 <div className="flex animate-marquee w-max items-center hover:[animation-play-state:paused]" style={{ animationDuration: "48s" }}>
                   {[...CLIENT_LOGOS, ...CLIENT_LOGOS].map((client, i) => (
                     <a
