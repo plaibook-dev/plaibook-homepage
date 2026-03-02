@@ -46,7 +46,7 @@ export default function DisconnectedSystemsSection() {
       <div className="text-center max-w-3xl mx-auto">
         <FadeIn>
           <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-text-primary leading-tight">
-            Disconnected systems lead to lost opportunity
+            DISCONNECTED SYSTEMS LEAD TO LOST OPPORTUNITIES
           </h2>
         </FadeIn>
       </div>
