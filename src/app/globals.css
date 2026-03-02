@@ -1,11 +1,11 @@
 @import "tailwindcss";
 
 :root {
-  /* Primary — sage green: money, growth, trust */
-  --color-primary: #6AA89A;
-  --color-primary-dark: #54877C;
-  --color-primary-light: #8AC0B4;
-  --color-primary-lightest: #E8F5F1;
+  /* Primary — teal: vibrant, modern, trust */
+  --color-primary: #42d9c8;
+  --color-primary-dark: #35b3a5;
+  --color-primary-light: #6de4d6;
+  --color-primary-lightest: #e0f9f6;
 
   /* Dark surfaces */
   --color-bg-dark: #0F172A;

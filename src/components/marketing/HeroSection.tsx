@@ -57,7 +57,7 @@ export default function HeroSection() {
           <div>
             <FadeIn direction="up" delay={0.1}>
               <h1 className="font-heading text-4xl md:text-5xl lg:text-[3.5rem] text-text-light font-bold leading-[1.1] tracking-tight">
-                EVERYTHING YOU NEED TO HIT ALL YOUR SALES TARGETS
+                EVERYTHING YOU NEED TO HIT <span className="text-primary">ALL YOUR SALES TARGETS</span>
               </h1>
             </FadeIn>
 
