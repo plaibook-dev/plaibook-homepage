@@ -88,8 +88,8 @@ export default function HomePage() {
         }}
       />
       <HeroSection />
-      <HowItWorksSection />
       <DisconnectedSystemsSection />
+      <HowItWorksSection />
       <TestimonialBanner />
       <CaseStudyVideoSection />
       <FinalCTASection />
