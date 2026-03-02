@@ -88,8 +88,8 @@ export default function HeroSection() {
         {/* Client logo carousel */}
         <FadeIn direction="up" delay={0.55}>
           <div className="mt-16 lg:mt-20 border-t border-white/10 pt-8">
-            <p className="text-xs font-mono uppercase tracking-widest text-text-light/30 mb-5">
-              Trusted by
+            <p className="text-xs font-mono uppercase tracking-widest text-text-light/30 mb-5 text-center">
+              Trusted by:
             </p>
             <div className="relative overflow-hidden">
               {/* Fade edges */}
