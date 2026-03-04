@@ -1,8 +1,9 @@
 "use client";
 
+import { useRef } from "react";
 import Button from "@/components/ui/Button";
 import FadeIn from "@/components/marketing/FadeIn";
-import HeroDashboard from "@/components/mockups/HeroDashboard";
+import HeroStoryLoop from "@/components/mockups/HeroStoryLoop";
 import { DEMO_URL } from "@/lib/constants";
 import HeroParticles from "@/components/marketing/HeroParticles";
 
@@ -22,16 +23,14 @@ const CLIENT_LOGOS = [
 ];
 
 export default function HeroSection() {
+  const sectionRef = useRef<HTMLElement>(null);
+
   return (
     <section
+      ref={sectionRef}
       id="hero"
       className="relative min-h-[90vh] overflow-hidden bg-bg-dark"
     >
-      {/* Particles — confined above the client carousel */}
-      <div className="absolute inset-x-0 top-0 bottom-[140px] lg:bottom-[160px] overflow-hidden">
-        <HeroParticles />
-      </div>
-
       {/* Subtle background patterns */}
       <div className="absolute inset-0 noise-texture" />
       <div
@@ -49,6 +48,11 @@ export default function HeroSection() {
             "radial-gradient(ellipse 60% 50% at 70% 50%, rgba(106,168,154,0.15), transparent)",
         }}
       />
+
+      {/* Binary particle effect — above background, below content */}
+      <div className="absolute inset-0 z-[5] pointer-events-none overflow-hidden">
+        <HeroParticles sectionRef={sectionRef} />
+      </div>
 
       {/* Main content */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-16 lg:pt-40 lg:pb-20">
@@ -77,10 +81,10 @@ export default function HeroSection() {
             </FadeIn>
           </div>
 
-          {/* Right — interactive platform demo */}
+          {/* Right — interactive story loop demo */}
           <FadeIn direction="up" delay={0.3}>
             <div className="lg:translate-x-4">
-              <HeroDashboard />
+              <HeroStoryLoop />
             </div>
           </FadeIn>
         </div>

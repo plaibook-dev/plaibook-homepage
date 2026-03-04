@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import dynamic from "next/dynamic";
 import Section from "@/components/marketing/Section";
 import FadeIn from "@/components/marketing/FadeIn";
@@ -61,34 +61,30 @@ function Beat({
   );
 }
 
-function ProgressLine({ progress, activeStep }: { progress: number; activeStep: number }) {
+function ProgressLine() {
+  const lineRef = useRef<HTMLDivElement>(null);
+  const dotRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const innerDotRefs = useRef<(HTMLDivElement | null)[]>([]);
+
   return (
     <div className="absolute left-1/2 top-0 bottom-0 -translate-x-1/2 w-0.5 hidden md:block">
-      {/* Background line */}
       <div className="absolute inset-0 bg-text-muted/20" />
-
-      {/* Filled progress line */}
       <div
-        className="absolute top-0 left-0 right-0 bg-primary transition-all duration-150 ease-out"
-        style={{ height: `${progress}%` }}
+        ref={lineRef}
+        className="progress-line-fill absolute top-0 left-0 right-0 bg-primary"
+        style={{ height: "0%" }}
       />
-
-      {/* Dots for each step */}
       {[0, 1, 2].map((step) => (
         <div
           key={step}
-          className={`absolute left-1/2 -translate-x-1/2 w-4 h-4 rounded-full border-2 transition-all duration-300 ${
-            step <= activeStep
-              ? "bg-primary border-primary"
-              : "bg-white border-text-muted/40"
-          }`}
-          style={{ top: `${step * 50}%` }}
+          ref={(el) => { dotRefs.current[step] = el; }}
+          className="progress-dot absolute left-1/2 -translate-x-1/2 w-4 h-4 rounded-full border-2 bg-white border-text-muted/40"
+          style={{ top: `${step * 50}%`, transition: "background-color 0.3s, border-color 0.3s" }}
         >
-          {/* Inner dot */}
           <div
-            className={`absolute inset-1 rounded-full transition-all duration-300 ${
-              step <= activeStep ? "bg-white" : "bg-transparent"
-            }`}
+            ref={(el) => { innerDotRefs.current[step] = el; }}
+            className="absolute inset-1 rounded-full bg-transparent"
+            style={{ transition: "background-color 0.3s" }}
           />
         </div>
       ))}
@@ -98,44 +94,44 @@ function ProgressLine({ progress, activeStep }: { progress: number; activeStep: 
 
 export default function HowItWorksSection() {
   const sectionRef = useRef<HTMLDivElement>(null);
-  const [progress, setProgress] = useState(0);
-  const [activeStep, setActiveStep] = useState(-1);
 
   useEffect(() => {
+    const section = sectionRef.current;
+    if (!section) return;
+
+    const line = section.querySelector<HTMLDivElement>(".progress-line-fill");
+    const dots = section.querySelectorAll<HTMLDivElement>(".progress-dot");
+    if (!line) return;
+
+    let prevStep = -1;
+
     const handleScroll = () => {
-      if (!sectionRef.current) return;
-
-      const rect = sectionRef.current.getBoundingClientRect();
-      const sectionTop = rect.top;
-      const sectionHeight = rect.height;
+      const rect = section.getBoundingClientRect();
       const windowHeight = window.innerHeight;
+      // Each dot activates when it crosses the 3/4 line on the viewport
+      const triggerLine = windowHeight * 0.75;
+      const scrolled = triggerLine - rect.top;
+      const pct = Math.min(100, Math.max(0, (scrolled / rect.height) * 100));
 
-      // Calculate progress through the section
-      // Start filling when section enters viewport, complete when section exits
-      const startOffset = windowHeight * 0.3; // Start when 30% into viewport
-      const scrolled = startOffset - sectionTop;
-      const totalScrollable = sectionHeight - windowHeight * 0.4;
+      // Direct DOM write — no React re-render
+      line.style.height = `${pct}%`;
 
-      const rawProgress = (scrolled / totalScrollable) * 100;
-      const clampedProgress = Math.min(100, Math.max(0, rawProgress));
-
-      setProgress(clampedProgress);
-
-      // Determine active step based on progress
-      if (clampedProgress >= 66) {
-        setActiveStep(2);
-      } else if (clampedProgress >= 33) {
-        setActiveStep(1);
-      } else if (clampedProgress > 5) {
-        setActiveStep(0);
-      } else {
-        setActiveStep(-1);
+      // Dots are at 0%, 50%, 100% — activate each when the line reaches it
+      const step = pct >= 99 ? 2 : pct >= 50 ? 1 : pct > 2 ? 0 : -1;
+      if (step !== prevStep) {
+        prevStep = step;
+        dots.forEach((dot, i) => {
+          const active = i <= step;
+          dot.style.backgroundColor = active ? "var(--color-primary)" : "white";
+          dot.style.borderColor = active ? "var(--color-primary)" : "var(--color-text-muted)";
+          const inner = dot.firstElementChild as HTMLDivElement | null;
+          if (inner) inner.style.backgroundColor = active ? "white" : "transparent";
+        });
       }
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll(); // Initial check
-
+    handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -149,7 +145,7 @@ export default function HowItWorksSection() {
 
       <div ref={sectionRef} className="relative">
         {/* Progress line with dots */}
-        <ProgressLine progress={progress} activeStep={activeStep} />
+        <ProgressLine />
 
         <div className="space-y-20 md:space-y-28">
           {/* Beat 1 */}
