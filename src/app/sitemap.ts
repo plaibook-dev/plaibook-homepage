@@ -1,11 +1,12 @@
 import type { MetadataRoute } from "next";
-import { blogPosts } from "@/lib/blog/posts";
+import { gametapePosts } from "@/lib/gametape/posts";
+import { GAMETAPE_URL } from "@/lib/constants";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://plaibook.tech";
 
-  const blogEntries: MetadataRoute.Sitemap = blogPosts.map((post) => ({
-    url: `${baseUrl}/blog/${post.slug}`,
+  const gametapeEntries: MetadataRoute.Sitemap = gametapePosts.map((post) => ({
+    url: `${baseUrl}${GAMETAPE_URL}/${post.slug}`,
     lastModified: new Date(post.publishedAt),
     changeFrequency: "monthly" as const,
     priority: 0.7,
@@ -25,12 +26,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
     {
-      url: `${baseUrl}/blog`,
+      url: `${baseUrl}${GAMETAPE_URL}`,
       lastModified: new Date(),
       changeFrequency: "weekly",
       priority: 0.8,
     },
-    ...blogEntries,
+    ...gametapeEntries,
     {
       url: `${baseUrl}/demo`,
       lastModified: new Date(),

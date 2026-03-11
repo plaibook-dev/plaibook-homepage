@@ -2,7 +2,7 @@ import Link from "next/link";
 import Section from "@/components/marketing/Section";
 import FadeIn from "@/components/marketing/FadeIn";
 import Button from "@/components/ui/Button";
-import { DEMO_URL } from "@/lib/constants";
+import { DEMO_URL, GAMETAPE_LABEL, GAMETAPE_URL } from "@/lib/constants";
 
 export default function FinalCTASection() {
   return (
@@ -28,10 +28,10 @@ export default function FinalCTASection() {
           <p className="text-text-light/40 text-sm mt-4">
             Not ready yet?{" "}
             <Link
-              href="/blog"
+              href={GAMETAPE_URL}
               className="text-primary/70 hover:text-primary transition-colors underline"
             >
-              Read our blog
+              Read the {GAMETAPE_LABEL}
             </Link>{" "}
             for pest control sales benchmarks and tips from real call data.
           </p>

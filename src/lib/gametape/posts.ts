@@ -1,4 +1,4 @@
-export interface BlogPost {
+export interface GametapePost {
   slug: string;
   title: string;
   description: string;
@@ -9,7 +9,7 @@ export interface BlogPost {
   keywords: string[];
 }
 
-export const blogPosts: BlogPost[] = [
+export const gametapePosts: GametapePost[] = [
   {
     slug: "pest-control-close-rate-benchmarks",
     title:
@@ -114,6 +114,6 @@ export const blogPosts: BlogPost[] = [
   },
 ];
 
-export function getPostBySlug(slug: string): BlogPost | undefined {
-  return blogPosts.find((post) => post.slug === slug);
+export function getGametapePostBySlug(slug: string): GametapePost | undefined {
+  return gametapePosts.find((post) => post.slug === slug);
 }

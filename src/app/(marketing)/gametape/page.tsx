@@ -1,34 +1,39 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import type { WithContext, Blog } from "schema-dts";
-import { blogPosts } from "@/lib/blog/posts";
+import { gametapePosts } from "@/lib/gametape/posts";
 import Section from "@/components/marketing/Section";
 import FadeIn from "@/components/marketing/FadeIn";
-import { SITE_URL } from "@/lib/constants";
+import {
+  GAMETAPE_LABEL,
+  GAMETAPE_NAME,
+  GAMETAPE_URL,
+  SITE_URL,
+} from "@/lib/constants";
 
 export const metadata: Metadata = {
-  title: "Blog — Pest Control Sales & Revenue Insights",
+  title: `${GAMETAPE_LABEL} — Pest Control Sales & Revenue Insights`,
   description:
     "Data-driven insights on pest control sales, marketing ROI, call center operations, and revenue growth. Written by the team behind Plaibook.",
   alternates: {
-    canonical: `${SITE_URL}/blog`,
+    canonical: `${SITE_URL}${GAMETAPE_URL}`,
   },
   openGraph: {
-    title: "Plaibook Blog — Pest Control Sales & Revenue Insights",
+    title: `${GAMETAPE_NAME} — Pest Control Sales & Revenue Insights`,
     description:
       "Data-driven insights on pest control sales, marketing ROI, call center operations, and revenue growth.",
     type: "website",
-    url: `${SITE_URL}/blog`,
+    url: `${SITE_URL}${GAMETAPE_URL}`,
   },
 };
 
-const blogJsonLd: WithContext<Blog> = {
+const gametapeJsonLd: WithContext<Blog> = {
   "@context": "https://schema.org",
   "@type": "Blog",
-  name: "Plaibook Blog",
+  name: GAMETAPE_NAME,
   description:
     "Data-driven insights on pest control sales, marketing ROI, call center operations, and revenue growth.",
-  url: `${SITE_URL}/blog`,
+  url: `${SITE_URL}${GAMETAPE_URL}`,
   publisher: {
     "@type": "Organization",
     name: "Plaibook",
@@ -43,20 +48,20 @@ const categoryLabels: Record<string, string> = {
   "case-study": "Case Study",
 };
 
-export default function BlogPage() {
+export default function GametapePage() {
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(blogJsonLd).replace(/</g, "\\u003c"),
+          __html: JSON.stringify(gametapeJsonLd).replace(/</g, "\\u003c"),
         }}
       />
 
       <Section bg="dark" spacing="default">
         <FadeIn>
           <p className="text-xs font-mono text-primary font-medium tracking-wider uppercase mb-4">
-            Blog
+            {GAMETAPE_LABEL}
           </p>
           <h1 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold text-text-light max-w-4xl leading-tight mb-6">
             Pest Control Sales &amp; Revenue Insights
@@ -71,10 +76,10 @@ export default function BlogPage() {
 
       <Section bg="white" spacing="default">
         <div className="grid gap-8 md:gap-10">
-          {blogPosts.map((post, i) => (
+          {gametapePosts.map((post, i) => (
             <FadeIn key={post.slug} delay={i * 0.05}>
               <Link
-                href={`/blog/${post.slug}`}
+                href={`${GAMETAPE_URL}/${post.slug}`}
                 className="block group"
               >
                 <article className="border border-slate-200 rounded-lg p-6 sm:p-8 hover:border-primary/40 hover:shadow-md transition-all duration-200">

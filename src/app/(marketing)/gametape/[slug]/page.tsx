@@ -1,12 +1,20 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import type { WithContext, Article } from "schema-dts";
-import { blogPosts, getPostBySlug } from "@/lib/blog/posts";
+import {
+  gametapePosts,
+  getGametapePostBySlug,
+} from "@/lib/gametape/posts";
 import Section from "@/components/marketing/Section";
 import FadeIn from "@/components/marketing/FadeIn";
 import Button from "@/components/ui/Button";
 import Link from "next/link";
-import { DEMO_URL, SITE_URL } from "@/lib/constants";
+import {
+  DEMO_URL,
+  GAMETAPE_LABEL,
+  GAMETAPE_URL,
+  SITE_URL,
+} from "@/lib/constants";
 
 import PestControlCloseRate from "./posts/pest-control-close-rate-benchmarks";
 import CostOfMissedFollowUps from "./posts/cost-of-missed-follow-ups-home-services";
@@ -25,7 +33,7 @@ const postComponents: Record<string, React.ComponentType> = {
 };
 
 export function generateStaticParams() {
-  return blogPosts.map((post) => ({ slug: post.slug }));
+  return gametapePosts.map((post) => ({ slug: post.slug }));
 }
 
 export async function generateMetadata({
@@ -34,7 +42,7 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const post = getPostBySlug(slug);
+  const post = getGametapePostBySlug(slug);
   if (!post) return {};
 
   return {
@@ -42,13 +50,13 @@ export async function generateMetadata({
     description: post.description,
     keywords: post.keywords,
     alternates: {
-      canonical: `${SITE_URL}/blog/${post.slug}`,
+      canonical: `${SITE_URL}${GAMETAPE_URL}/${post.slug}`,
     },
     openGraph: {
       title: `${post.title} | Plaibook`,
       description: post.description,
       type: "article",
-      url: `${SITE_URL}/blog/${post.slug}`,
+      url: `${SITE_URL}${GAMETAPE_URL}/${post.slug}`,
       publishedTime: post.publishedAt,
       modifiedTime: post.updatedAt || post.publishedAt,
       authors: ["Plaibook"],
@@ -56,13 +64,13 @@ export async function generateMetadata({
   };
 }
 
-export default async function BlogPostPage({
+export default async function GametapePostPage({
   params,
 }: {
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const post = getPostBySlug(slug);
+  const post = getGametapePostBySlug(slug);
   if (!post) notFound();
 
   const PostContent = postComponents[slug];
@@ -85,12 +93,12 @@ export default async function BlogPostPage({
       name: "Plaibook",
       url: SITE_URL,
     },
-    mainEntityOfPage: `${SITE_URL}/blog/${post.slug}`,
+    mainEntityOfPage: `${SITE_URL}${GAMETAPE_URL}/${post.slug}`,
     keywords: post.keywords.join(", "),
   };
 
   // Find related posts (same category, excluding current)
-  const relatedPosts = blogPosts
+  const relatedPosts = gametapePosts
     .filter((p) => p.slug !== post.slug)
     .slice(0, 3);
 
@@ -108,10 +116,10 @@ export default async function BlogPostPage({
         <FadeIn>
           <div className="max-w-3xl">
             <Link
-              href="/blog"
+              href={GAMETAPE_URL}
               className="text-xs font-mono text-primary font-medium tracking-wider uppercase mb-4 inline-block hover:text-primary-light transition-colors"
             >
-              &larr; Back to Blog
+              &larr; Back to {GAMETAPE_LABEL}
             </Link>
             <div className="flex flex-wrap items-center gap-3 mb-4">
               <span className="text-xs font-mono text-primary font-medium tracking-wider uppercase">
@@ -169,13 +177,13 @@ export default async function BlogPostPage({
       {relatedPosts.length > 0 && (
         <Section bg="white" spacing="default">
           <h2 className="font-heading text-2xl font-bold text-text-primary mb-8">
-            More from the Blog
+            More from {GAMETAPE_LABEL}
           </h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {relatedPosts.map((related) => (
               <Link
                 key={related.slug}
-                href={`/blog/${related.slug}`}
+                href={`${GAMETAPE_URL}/${related.slug}`}
                 className="block group"
               >
                 <article className="border border-slate-200 rounded-lg p-5 hover:border-primary/40 hover:shadow-md transition-all duration-200 h-full">

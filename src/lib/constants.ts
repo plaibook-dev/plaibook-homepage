@@ -5,12 +5,15 @@ export const SITE_DESCRIPTION =
 
 export const DEMO_URL = "/demo";
 export const LOGIN_URL = "https://app.plaibook.tech";
+export const GAMETAPE_URL = "/gametape";
+export const GAMETAPE_LABEL = "Gametape";
+export const GAMETAPE_NAME = `Plaibook ${GAMETAPE_LABEL}`;
 
 export const NAV_LINKS = [
   { label: "How It Works", href: "/#how-it-works" },
   { label: "Results", href: "/#results" },
   { label: "Case Study", href: "/case-study" },
-  { label: "Blog", href: "/blog" },
+  { label: GAMETAPE_LABEL, href: GAMETAPE_URL },
 ] as const;
 
 export const TESTIMONIALS = {

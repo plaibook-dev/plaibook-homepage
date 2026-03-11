@@ -7,7 +7,12 @@ import StatBlock from "@/components/marketing/StatBlock";
 import Button from "@/components/ui/Button";
 import CaseStudySMS from "@/components/marketing/CaseStudySMS";
 import CumulativeChart from "@/components/marketing/CumulativeChart";
-import { DEMO_URL, SITE_URL } from "@/lib/constants";
+import {
+  DEMO_URL,
+  GAMETAPE_LABEL,
+  GAMETAPE_URL,
+  SITE_URL,
+} from "@/lib/constants";
 
 export const metadata: Metadata = {
   title:
@@ -516,10 +521,10 @@ export default function CaseStudyPage() {
             <p className="text-sm text-text-muted mt-6">
               Want to learn more?{" "}
               <Link
-                href="/blog"
+                href={GAMETAPE_URL}
                 className="text-primary hover:text-primary-dark transition-colors underline"
               >
-                Read our blog
+                Read the {GAMETAPE_LABEL}
               </Link>{" "}
               for data-driven insights on pest control sales and revenue growth.
             </p>
