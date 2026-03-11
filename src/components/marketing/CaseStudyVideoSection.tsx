@@ -25,9 +25,8 @@ export default function CaseStudyVideoSection() {
         <FadeIn delay={0.15}>
           <video
             controls
-            preload="metadata"
+            preload="none"
             className="w-full rounded-lg shadow-2xl"
-            poster=""
           >
             <source
               src={TESTIMONIALS.taylorChristensen.videoUrl}

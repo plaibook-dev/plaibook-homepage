@@ -1,7 +1,9 @@
+import dynamic from "next/dynamic";
 import Header from "@/components/marketing/Header";
 import Footer from "@/components/marketing/Footer";
 import StickyBookDemo from "@/components/marketing/StickyBookDemo";
-import ChatWidget from "@/components/ui/ChatWidget";
+
+const ChatWidget = dynamic(() => import("@/components/ui/ChatWidget"));
 
 export default function MarketingLayout({
   children,

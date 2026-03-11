@@ -109,7 +109,7 @@ function CallFrame({ story }: { story: Story }) {
         {/* Waveform player */}
         <div className="bg-slate-900/60 rounded-lg p-3.5 mb-4 border border-white/[0.04]">
           <div className="flex items-center gap-3">
-            <button className="w-8 h-8 rounded-full bg-primary/20 border border-primary/30 flex items-center justify-center flex-shrink-0 hover:bg-primary/30 transition-colors">
+            <button aria-label="Play call recording" className="w-8 h-8 rounded-full bg-primary/20 border border-primary/30 flex items-center justify-center flex-shrink-0 hover:bg-primary/30 transition-colors">
               <svg className="w-3.5 h-3.5 text-primary ml-0.5" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M8 5v14l11-7z" />
               </svg>

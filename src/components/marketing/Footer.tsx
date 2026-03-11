@@ -54,7 +54,7 @@ export default function Footer() {
         </div>
 
         {/* Copyright */}
-        <p className="text-text-light/40 text-sm mt-8">
+        <p className="text-text-light/60 text-sm mt-8">
           &copy; 2026 Plaibook. All rights reserved.
         </p>
       </div>
