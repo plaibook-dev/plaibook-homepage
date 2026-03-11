@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Section from "@/components/marketing/Section";
 import FadeIn from "@/components/marketing/FadeIn";
 import Button from "@/components/ui/Button";
@@ -23,6 +24,16 @@ export default function FinalCTASection() {
           </Button>
           <p className="text-text-light/50 text-sm mt-6">
             Free for 30&nbsp;days. No credit card. Cancel anytime.
+          </p>
+          <p className="text-text-light/40 text-sm mt-4">
+            Not ready yet?{" "}
+            <Link
+              href="/blog"
+              className="text-primary/70 hover:text-primary transition-colors underline"
+            >
+              Read our blog
+            </Link>{" "}
+            for pest control sales benchmarks and tips from real call data.
           </p>
         </FadeIn>
       </div>

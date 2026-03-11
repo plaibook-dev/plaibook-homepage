@@ -6,14 +6,14 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
     template: `%s | ${SITE_NAME}`,
-    default: `${SITE_NAME} — AI Revenue Recovery for Home Services`,
+    default: `${SITE_NAME} — AI Sales Analytics & Revenue Recovery for Pest Control`,
   },
   description: SITE_DESCRIPTION,
   openGraph: {
     type: "website",
     locale: "en_US",
     siteName: SITE_NAME,
-    title: `${SITE_NAME} — AI Revenue Recovery for Home Services`,
+    title: `${SITE_NAME} — AI Sales Analytics & Revenue Recovery for Pest Control`,
     description: SITE_DESCRIPTION,
   },
   twitter: {

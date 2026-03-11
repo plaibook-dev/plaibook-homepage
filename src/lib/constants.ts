@@ -10,6 +10,7 @@ export const NAV_LINKS = [
   { label: "How It Works", href: "/#how-it-works" },
   { label: "Results", href: "/#results" },
   { label: "Case Study", href: "/case-study" },
+  { label: "Blog", href: "/blog" },
 ] as const;
 
 export const TESTIMONIALS = {

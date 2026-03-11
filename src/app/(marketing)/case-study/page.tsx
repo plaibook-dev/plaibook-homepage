@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import type { WithContext, Article } from "schema-dts";
+import Link from "next/link";
 import Section from "@/components/marketing/Section";
 import FadeIn from "@/components/marketing/FadeIn";
 import StatBlock from "@/components/marketing/StatBlock";
@@ -9,16 +10,26 @@ import CumulativeChart from "@/components/marketing/CumulativeChart";
 import { DEMO_URL, SITE_URL } from "@/lib/constants";
 
 export const metadata: Metadata = {
-  title: "Case Study: BRD Pest Solutions SMS Upsell Campaign",
+  title:
+    "Case Study: How BRD Pest Solutions Generated $500K with AI-Powered SMS Upselling",
   description:
-    "A mid-sized pest control company texted 30,000 customers to upsell mosquito control. The campaign started 28,000 conversations, closed $500K+ in new revenue, and had to be shut off because they ran out of supplies.",
+    "BRD Pest Solutions texted 30,000 customers to upsell mosquito control using Plaibook's AI SMS platform. The campaign started 28,000 conversations, closed 786 deals over text, generated $500K+ in new revenue, and had to be paused because they ran out of supplies.",
+  keywords: [
+    "pest control upselling",
+    "SMS marketing pest control",
+    "pest control case study",
+    "AI sales automation results",
+    "pest control revenue growth",
+    "mosquito control upsell",
+  ],
   alternates: {
     canonical: `${SITE_URL}/case-study`,
   },
   openGraph: {
-    title: "Case Study: BRD Pest Solutions SMS Upsell Campaign | Plaibook",
+    title:
+      "Case Study: How BRD Pest Solutions Generated $500K with AI SMS | Plaibook",
     description:
-      "30,000 customers texted. 28,000 conversations. $500K+ in new revenue. Then they ran out of supplies.",
+      "30,000 customers texted. 28,000 conversations. 786 deals closed over text. $500K+ in new revenue. Then they ran out of supplies.",
     type: "article",
     url: `${SITE_URL}/case-study`,
   },
@@ -502,6 +513,16 @@ export default function CaseStudyPage() {
             <Button href={DEMO_URL} variant="primary" size="lg">
               Book a Demo
             </Button>
+            <p className="text-sm text-text-muted mt-6">
+              Want to learn more?{" "}
+              <Link
+                href="/blog"
+                className="text-primary hover:text-primary-dark transition-colors underline"
+              >
+                Read our blog
+              </Link>{" "}
+              for data-driven insights on pest control sales and revenue growth.
+            </p>
           </div>
         </FadeIn>
       </Section>
