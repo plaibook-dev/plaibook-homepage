@@ -426,9 +426,9 @@ export default function HowToCoachPestControlSalesReps() {
       </h3>
 
       <p className="text-text-secondary leading-relaxed mb-4">
-        One of the most effective training tools in pest control sales is
-        simply letting reps hear great calls. Not scripted role-plays. Real
-        calls where a real rep handled a real objection and closed the deal.
+        Nothing trains a new rep faster than hearing a great call. Not a
+        scripted role-play. A real call where a real rep handled a real
+        objection and closed the deal.
       </p>
 
       <p className="text-text-secondary leading-relaxed mb-4">
@@ -439,20 +439,20 @@ export default function HowToCoachPestControlSalesReps() {
       </p>
 
       <p className="text-text-secondary leading-relaxed mb-4">
-        The point is to take the knowledge that lives in your best reps&apos;
-        heads and make it accessible to everyone. Not through a manual they&apos;ll
-        never read, but through real examples they can learn from immediately.
+        The goal is to get what&apos;s in your best reps&apos;
+        heads out where everyone can use it. Not through a manual nobody reads,
+        but through real examples they can learn from right away.
       </p>
 
       <h2 className="font-heading text-2xl sm:text-3xl font-bold text-text-primary mt-12 mb-6">
-        Putting It All Together
+        Putting it all together
       </h2>
 
       <p className="text-text-secondary leading-relaxed mb-4">
-        Effective pest control sales coaching comes down to three things:
-        visibility into what&apos;s happening on calls, a focus on specific
-        behaviors rather than vague outcomes, and a system for spreading what
-        works from your best reps to the whole team.
+        Good pest control sales coaching comes down to this: know what&apos;s
+        happening on calls, coach on specific behaviors instead of vague
+        outcomes, and find a way to spread what your best reps do to
+        everyone else.
       </p>
 
       <p className="text-text-secondary leading-relaxed mb-4">
@@ -460,13 +460,12 @@ export default function HowToCoachPestControlSalesReps() {
         happened on every call. You need to see which checkpoints are being
         hit and which are being missed. You need to know which objections are
         costing you deals and which reps handle them best. And you need a
-        cadence that turns all of that data into focused, productive coaching
-        conversations.
+        cadence that turns all of that into real coaching conversations.
       </p>
 
       <p className="text-text-secondary leading-relaxed mb-4">
-        The managers who figure this out build teams that improve consistently,
-        season after season. The ones who don&apos;t keep relying on gut feel,
+        The managers who figure this out see their teams get better every
+        season. The ones who don&apos;t keep relying on gut feel,
         keep burning out on random call reviews, and keep wondering why their
         reps make the same mistakes month after month.
       </p>
@@ -485,7 +484,7 @@ export default function HowToCoachPestControlSalesReps() {
       </p>
 
       <h2 className="font-heading text-2xl sm:text-3xl font-bold text-text-primary mt-12 mb-6">
-        Quick-Reference: Your Coaching Checklist
+        Quick-reference coaching checklist
       </h2>
 
       <ul className="list-disc pl-6 space-y-2 text-text-secondary mb-6">
@@ -495,7 +494,7 @@ export default function HowToCoachPestControlSalesReps() {
           measurable.
         </li>
         <li>
-          <strong>Track checkpoint adherence per rep.</strong> Know who&apos;s
+          <strong>Track checkpoint scores per rep.</strong> Know who&apos;s
           hitting the playbook and who&apos;s winging it.
         </li>
         <li>
@@ -504,7 +503,7 @@ export default function HowToCoachPestControlSalesReps() {
         </li>
         <li>
           <strong>Coach one behavior at a time.</strong> Don&apos;t overwhelm
-          reps with a laundry list. Pick the one thing that moves the needle
+          reps with a laundry list. Pick the one thing that matters
           most.
         </li>
         <li>

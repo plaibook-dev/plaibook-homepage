@@ -15,18 +15,16 @@ export default function PestControlObjectionsTopRepsHandle() {
       </p>
 
       <p className="text-text-secondary leading-relaxed mb-4">
-        The objection with the highest deal-killing rate is one that most
-        managers barely think about. And the reason it&apos;s so deadly is
-        that reps have no idea what to say when they hear it. They just accept
-        it, end the call, and move on.
+        The objection that actually kills the most deals is one that most
+        managers barely think about. Reps have no idea what to say when they
+        hear it. They just accept it, end the call, and move on.
       </p>
 
       <p className="text-text-secondary leading-relaxed mb-4">
-        In this article, we&apos;re going to break down the top five
-        objections in pest control sales, ranked not by how often they come up,
-        but by how often they kill the deal. Then we&apos;ll show you exactly
-        how top-performing reps handle each one, with specific talk tracks pulled
-        from real calls where the objection was overcome and the deal closed.
+        Below, we break down the top five objections in pest control sales,
+        ranked by how often they kill the deal. Then we show you exactly how
+        the best reps handle each one, with talk tracks pulled from real calls
+        where the objection was overcome and the deal closed.
       </p>
 
       <h2 className="font-heading text-2xl sm:text-3xl font-bold text-text-primary mt-12 mb-6">
@@ -149,7 +147,7 @@ export default function PestControlObjectionsTopRepsHandle() {
           better conversation with their spouse.
         </li>
         <li>
-          <strong>Create a concrete next step.</strong> &ldquo;Want me to text
+          <strong>Create a real next step.</strong> &ldquo;Want me to text
           that over?&rdquo; This keeps the deal alive. Now the rep has a reason
           to follow up, and the customer has materials to share.
         </li>
@@ -395,7 +393,7 @@ export default function PestControlObjectionsTopRepsHandle() {
         </li>
         <li>
           <strong>Offer a specific next step.</strong> Not &ldquo;call us
-          back.&rdquo; Something concrete. &ldquo;Want me to text you the
+          back.&rdquo; Something real. &ldquo;Want me to text you the
           details?&rdquo; or &ldquo;Can I check back Thursday?&rdquo; or
           &ldquo;Let me send you a comparison of what you&apos;re getting now
           versus our plan.&rdquo;
@@ -409,8 +407,8 @@ export default function PestControlObjectionsTopRepsHandle() {
       <p className="text-text-secondary leading-relaxed mb-4">
         Average reps do step one and stop. They acknowledge the objection and let
         the customer go. They&apos;re not bad at sales. They&apos;re not rude.
-        They just accept the objection as a dead end instead of recognizing it as
-        the start of a different conversation.
+        They just treat the objection as an ending instead of the start of a
+        different conversation.
       </p>
 
       <blockquote className="border-l-4 border-primary pl-6 my-8 italic text-text-secondary">
@@ -424,25 +422,25 @@ export default function PestControlObjectionsTopRepsHandle() {
       </blockquote>
 
       <p className="text-text-secondary leading-relaxed mb-4">
-        Dave&apos;s point hits at the core of the problem. Most pest control
-        companies know they&apos;re losing deals to objections. They just
-        can&apos;t see which objections are doing the damage, which reps handle
-        them well, and which reps need coaching. Without that visibility,
-        training is guesswork.
+        That&apos;s the core of it. Most pest control companies know they&apos;re
+        losing deals to objections. They just can&apos;t see which ones are
+        doing the damage, who handles them well, and who needs coaching. Without
+        that visibility, training is guesswork.
       </p>
 
       <h2 className="font-heading text-2xl sm:text-3xl font-bold text-text-primary mt-12 mb-6">
-        Putting This Into Practice
+        Where to start
       </h2>
 
       <p className="text-text-secondary leading-relaxed mb-4">
-        If you manage a pest control sales team, here&apos;s where to start:
+        If you manage a pest control sales team, here are the moves that
+        matter most:
       </p>
 
       <ul className="list-disc pl-6 space-y-2 text-text-secondary mb-6">
         <li>
-          <strong>Stop assuming price is your biggest problem.</strong> It might
-          be. But until you&apos;ve actually categorized your lost deals by
+          <strong>Stop assuming price is your biggest problem.</strong> Maybe it
+          is. But until you&apos;ve actually sorted your lost deals by
           objection type and measured close rates for each, you&apos;re guessing.
         </li>
         <li>
@@ -457,9 +455,9 @@ export default function PestControlObjectionsTopRepsHandle() {
           <strong>
             Measure rebuttals, not just objections.
           </strong>{" "}
-          Knowing that your team gets a lot of price objections isn&apos;t useful
-          unless you also know what your reps said in response and whether it
-          worked. Track the rebuttal, not just the objection.
+          Knowing your team gets a lot of price objections isn&apos;t useful
+          on its own. You also need to know what your reps said in response and
+          whether it worked. Track the rebuttal, not just the objection.
         </li>
         <li>
           <strong>Teach the three-step pattern.</strong> Acknowledge, ask, offer
@@ -470,22 +468,21 @@ export default function PestControlObjectionsTopRepsHandle() {
       </ul>
 
       <p className="text-text-secondary leading-relaxed mb-4">
-        The data here came from analyzing thousands of pest control sales calls
-        using Plaibook, which uses AI to cluster objections into categories,
-        track rebuttal effectiveness, and identify which reps handle each
-        objection type best. If you want to see what your own call data reveals
-        about where your deals are dying, that&apos;s what the platform was
-        built for.
+        Everything in this article came from analyzing thousands of pest control
+        sales calls through Plaibook. The platform groups objections into
+        categories, tracks which rebuttals actually work, and shows you which
+        reps handle each objection type best. If you want to see where your own
+        deals are dying, that&apos;s what it was built for.
       </p>
 
       <p className="text-text-secondary leading-relaxed mb-4">
-        But you don&apos;t need software to start. You need to stop treating
-        objections as endings and start treating them as information. The rep who
-        hears &ldquo;I need to talk to my spouse&rdquo; and responds with a text
-        message containing the full proposal is going to close more deals than
-        the rep who says &ldquo;Okay, call us back anytime.&rdquo; That&apos;s
-        not a technology insight. That&apos;s a sales insight. And it&apos;s
-        available to anyone willing to change how they respond.
+        But you don&apos;t need software to start. You just need to stop
+        treating objections as endings. The rep who hears &ldquo;I need to talk
+        to my spouse&rdquo; and responds with a text containing the full
+        proposal is going to close more deals than the rep who says
+        &ldquo;Okay, call us back anytime.&rdquo; That&apos;s a sales
+        insight, not a technology one. And it&apos;s available to anyone
+        willing to change how they respond.
       </p>
     </>
   );
