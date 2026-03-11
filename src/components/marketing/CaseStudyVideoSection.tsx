@@ -25,7 +25,7 @@ export default function CaseStudyVideoSection() {
         <FadeIn delay={0.15}>
           <video
             controls
-            preload="none"
+            preload="metadata"
             className="w-full rounded-lg shadow-2xl"
           >
             <source

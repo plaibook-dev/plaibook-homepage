@@ -111,6 +111,7 @@ export default function HeroSection() {
                         alt={client.name}
                         width={client.w}
                         height={client.h}
+                        style={{ height: client.h }}
                         loading="lazy"
                         className="w-auto object-contain brightness-0 invert opacity-50 hover:opacity-80 transition-opacity"
                       />
