@@ -77,7 +77,7 @@ export default function InteractiveDemo({
             className={
               screen.type === "dashboard"
                 ? "text-slate-700 font-medium"
-                : "text-red-500 hover:underline"
+                : "text-primary hover:underline"
             }
           >
             Dashboard
@@ -98,7 +98,7 @@ export default function InteractiveDemo({
                 className={
                   screen.type === "objection-drilldown"
                     ? "text-slate-700 font-medium"
-                    : "text-red-500 hover:underline"
+                    : "text-primary hover:underline"
                 }
               >
                 {objectionLabel}

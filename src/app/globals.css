@@ -73,7 +73,7 @@ html {
 
 /* Selection color */
 ::selection {
-  background: rgba(106, 168, 154, 0.25);
+  background: rgba(66, 217, 200, 0.25);
   color: inherit;
 }
 

@@ -38,7 +38,7 @@ export default function SMSConversation({ className = "" }: { className?: string
       </div>
 
       {/* Messages */}
-      <div className="bg-slate-50 px-3 py-3 space-y-2 max-h-[380px] overflow-y-auto">
+      <div className="bg-slate-50 px-3 py-3 space-y-2 max-h-[380px] overflow-y-auto scrollbar-light">
         {DEMO_SMS_THREAD.map((msg, i) => (
           <motion.div
             key={i}

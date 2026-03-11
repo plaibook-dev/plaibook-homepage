@@ -19,8 +19,8 @@ const outcomeBadge: Record<string, string> = {
 };
 
 function scoreBadge(score: number): string {
-  if (score >= 90) return "bg-emerald-100 text-emerald-700";
-  if (score >= 75) return "bg-amber-100 text-amber-700";
+  if (score >= 85) return "bg-emerald-100 text-emerald-700";
+  if (score >= 70) return "bg-amber-100 text-amber-700";
   return "bg-red-100 text-red-700";
 }
 
@@ -160,9 +160,9 @@ export default function CallDetailScreen({
       )}
 
       {/* Coaching note */}
-      <div className="rounded-lg border-l-3 border-red-400 bg-red-50/60 p-3 mt-3">
+      <div className="rounded-lg border-l-3 border-primary bg-primary/5 p-3 mt-3">
         <div className="flex items-center gap-1.5 mb-1.5">
-          <div className="w-4 h-4 rounded bg-red-500 flex items-center justify-center">
+          <div className="w-4 h-4 rounded bg-primary flex items-center justify-center">
             <span className="text-white text-[8px] font-bold">P</span>
           </div>
           <span className="text-[10px] font-heading font-semibold text-slate-700">

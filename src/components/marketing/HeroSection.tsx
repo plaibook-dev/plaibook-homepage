@@ -45,7 +45,7 @@ export default function HeroSection() {
         className="absolute inset-0 opacity-20"
         style={{
           background:
-            "radial-gradient(ellipse 60% 50% at 70% 50%, rgba(106,168,154,0.15), transparent)",
+            "radial-gradient(ellipse 60% 50% at 70% 50%, rgba(66,217,200,0.15), transparent)",
         }}
       />
 
@@ -75,7 +75,7 @@ export default function HeroSection() {
             <FadeIn direction="up" delay={0.4}>
               <div className="mt-8">
                 <Button href={DEMO_URL} variant="primary" size="lg">
-                  Get a Demo
+                  Book a Demo
                 </Button>
               </div>
             </FadeIn>

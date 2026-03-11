@@ -13,7 +13,7 @@ export default function PlaibookLogo({ className, size = 32 }: Props) {
       aria-label="Plaibook logo"
     >
       <rect
-        fill="#6AA89A"
+        fill="#42d9c8"
         x=".49"
         y=".49"
         width="15.02"

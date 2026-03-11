@@ -12,10 +12,10 @@ export default function CaseStudyVideoSection() {
           <p className="text-xs font-mono uppercase tracking-widest text-primary mb-4">
             Case Study
           </p>
-          <h2 className="font-heading text-3xl md:text-4xl font-bold text-text-light mb-4">
+          <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-text-light mb-4">
             BRD Pest Solutions: 10x daily revenue with outbound SMS
           </h2>
-          <p className="text-text-light/60 leading-relaxed mb-10 max-w-2xl">
+          <p className="text-text-light/70 leading-relaxed mb-10 max-w-2xl">
             See how one pest control company used Plaibook to recover abandoned
             leads over text and close $500K+ in new revenue from a single
             campaign.

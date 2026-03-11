@@ -33,7 +33,7 @@ export default function TestimonialBanner() {
               {testimonials.map((t, i) => (
                 <div
                   key={`${t.company}-${i}-${copy}`}
-                  className="flex-shrink-0 w-[340px] sm:w-[400px] rounded-xl border border-gray-200 bg-white p-6 shadow-sm"
+                  className="flex-shrink-0 w-[340px] sm:w-[400px] rounded-xl border border-text-muted/20 bg-white p-6 shadow-sm"
                 >
                   <p className="text-text-secondary text-sm leading-relaxed line-clamp-3 italic">
                     &ldquo;{t.quote}&rdquo;
