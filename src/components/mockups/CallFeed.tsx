@@ -330,22 +330,22 @@ export default function CallFeed({ className = "" }: { className?: string }) {
                   } ${isFirstCopy ? "cursor-pointer" : ""}`}
                   onClick={isFirstCopy ? () => handleRowClick(call.id) : undefined}
                 >
-                  <div className="px-3 py-2 flex items-center gap-2 text-xs">
-                    <span className="text-slate-400 font-mono tabular-nums w-14 flex-shrink-0 text-[10px]">
+                  <div className="px-3 py-2 flex items-center gap-1.5 text-xs min-w-0">
+                    <span className="text-slate-400 font-mono tabular-nums w-11 flex-shrink-0 text-[10px]">
                       {call.timestamp}
                     </span>
-                    <span className="font-medium text-slate-800 truncate w-24 flex-shrink-0">
+                    <span className="font-medium text-slate-800 truncate w-20 flex-shrink-0">
                       {call.agentName}
                     </span>
-                    <span className="text-slate-500 truncate w-24 flex-shrink-0">{call.leadName}</span>
-                    <span className="text-[10px] bg-slate-100 text-slate-500 rounded px-1.5 py-0.5 flex-shrink-0">
+                    <span className="text-slate-500 truncate w-20 flex-shrink-0">{call.leadName}</span>
+                    <span className="text-[10px] bg-slate-100 text-slate-500 rounded px-1 py-0.5 flex-shrink-0">
                       {call.leadSource}
                     </span>
                     <span className="font-mono tabular-nums text-slate-500 flex-shrink-0 ml-auto">
                       {formatDuration(call.duration)}
                     </span>
                     <span
-                      className={`text-[10px] rounded px-1.5 py-0.5 font-medium flex-shrink-0 ${
+                      className={`text-[10px] rounded px-1 py-0.5 font-medium flex-shrink-0 ${
                         outcomeBadge[call.outcome]
                       }`}
                     >
@@ -353,24 +353,6 @@ export default function CallFeed({ className = "" }: { className?: string }) {
                     </span>
                     <RevenueIndicator outcome={call.outcome} revenue={call.revenueAtStake} />
                     <CheckpointCircle score={call.checkpointScore} />
-                    {/* Expand/collapse indicator */}
-                    {isFirstCopy && (
-                      <svg
-                        width="12"
-                        height="12"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        className={`text-slate-300 flex-shrink-0 transition-transform duration-200 ${
-                          isExpanded ? "rotate-180" : ""
-                        }`}
-                      >
-                        <path d="m6 9 6 6 6-6" />
-                      </svg>
-                    )}
                   </div>
 
                   {/* Expanded detail */}
