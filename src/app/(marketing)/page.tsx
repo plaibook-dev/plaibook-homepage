@@ -39,8 +39,8 @@ const softwareJsonLd: WithContext<SoftwareApplication> = {
     "@type": "Offer",
     price: "0",
     priceCurrency: "USD",
-    description:
-      "Book a demo to see your sales floor through Plaibook.",
+    description: "Free demo — book a session to see your sales floor through Plaibook.",
+    category: "Free Trial",
   },
 };
 

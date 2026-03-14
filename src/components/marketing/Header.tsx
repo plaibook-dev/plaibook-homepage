@@ -49,17 +49,29 @@ export default function Header() {
 
         {/* Desktop nav */}
         <div className="hidden md:flex items-center gap-8">
-          {NAV_LINKS.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              className={`text-sm font-medium transition-colors duration-300 hover:text-primary ${
-                scrolled ? "text-text-secondary" : "text-text-light/80"
-              }`}
-            >
-              {link.label}
-            </a>
-          ))}
+          {NAV_LINKS.map((link) =>
+            link.href.startsWith("/#") ? (
+              <a
+                key={link.href}
+                href={link.href}
+                className={`text-sm font-medium transition-colors duration-300 hover:text-primary ${
+                  scrolled ? "text-text-secondary" : "text-text-light/80"
+                }`}
+              >
+                {link.label}
+              </a>
+            ) : (
+              <Link
+                key={link.href}
+                href={link.href}
+                className={`text-sm font-medium transition-colors duration-300 hover:text-primary ${
+                  scrolled ? "text-text-secondary" : "text-text-light/80"
+                }`}
+              >
+                {link.label}
+              </Link>
+            )
+          )}
           <a
             href={LOGIN_URL}
             className={`text-sm font-medium transition-colors duration-300 hover:text-primary ${
@@ -104,16 +116,27 @@ export default function Header() {
         }`}
       >
         <div className="bg-white shadow-lg px-4 pb-6 pt-2 space-y-1">
-          {NAV_LINKS.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              onClick={() => setMobileOpen(false)}
-              className="block py-3 text-sm font-medium text-text-secondary hover:text-primary"
-            >
-              {link.label}
-            </a>
-          ))}
+          {NAV_LINKS.map((link) =>
+            link.href.startsWith("/#") ? (
+              <a
+                key={link.href}
+                href={link.href}
+                onClick={() => setMobileOpen(false)}
+                className="block py-3 text-sm font-medium text-text-secondary hover:text-primary"
+              >
+                {link.label}
+              </a>
+            ) : (
+              <Link
+                key={link.href}
+                href={link.href}
+                onClick={() => setMobileOpen(false)}
+                className="block py-3 text-sm font-medium text-text-secondary hover:text-primary"
+              >
+                {link.label}
+              </Link>
+            )
+          )}
           <a
             href={LOGIN_URL}
             onClick={() => setMobileOpen(false)}

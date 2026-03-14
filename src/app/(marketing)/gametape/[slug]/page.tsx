@@ -93,6 +93,7 @@ export default async function GametapePostPage({
       name: "Plaibook",
       url: SITE_URL,
     },
+    image: `${SITE_URL}/opengraph-image`,
     mainEntityOfPage: `${SITE_URL}${GAMETAPE_URL}/${post.slug}`,
     keywords: post.keywords.join(", "),
   };

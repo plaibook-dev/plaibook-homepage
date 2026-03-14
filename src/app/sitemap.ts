@@ -1,9 +1,9 @@
 import type { MetadataRoute } from "next";
 import { gametapePosts } from "@/lib/gametape/posts";
-import { GAMETAPE_URL } from "@/lib/constants";
+import { GAMETAPE_URL, SITE_URL } from "@/lib/constants";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://plaibook.tech";
+  const baseUrl = SITE_URL;
 
   const gametapeEntries: MetadataRoute.Sitemap = gametapePosts.map((post) => ({
     url: `${baseUrl}${GAMETAPE_URL}/${post.slug}`,
